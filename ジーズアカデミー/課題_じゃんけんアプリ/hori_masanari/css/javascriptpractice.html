@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>javascriptの練習</title>
+
+<body>
+<script type="text/javascript">
+// イベントハンドラ。ウインドウが開いた時の動きを設定
+window.onload = function(){
+	var yourName = window.prompt('入力欄に名前を入れてください','例：田中太郎');
+	if(yourName == '例：田中太郎'){
+		document.write('<p>お名前の入力をお忘れになったようですね。</p>');
+	}else if(yourName == '' || yourName == null){
+		document.write('<p>お名前を書いてください。</p>');
+	}else{
+		document.write('<p>ようこそ'+yourName+'さん！条件分岐の理解も進んできましたね！</p>');
+	}
+}
+</script>	
+</body>
+</html>

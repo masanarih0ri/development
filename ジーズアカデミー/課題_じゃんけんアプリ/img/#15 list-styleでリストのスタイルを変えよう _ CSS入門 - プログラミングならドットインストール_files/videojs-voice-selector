@@ -1,0 +1,31 @@
+/* Position the button */
+.vjs-control.vjs-voice-button {
+    float: right;
+    line-height: 3em;
+    margin-left:1.5em;
+    width: 8em;
+}
+.vjs-voice-button .vjs-menu {
+    left: 0.5em;
+    border-left-width: 3.5em;
+    border-right-width: 3.5em;
+}
+
+.vjs-voice-button .vjs-menu-content {
+    border-radius: 4px;
+}
+
+/* Don't show hover effects on title */
+ul li.vjs-menu-title.vjs-voice-menu-title:hover {
+    cursor: default;
+    background-color: transparent;
+    color: #CCC;
+    
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.vjs-voice-button:hover {
+    background: rgba(60, 60 , 60, 0.8) !important;
+}

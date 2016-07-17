@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="./css/sample.css">
+<link rel="stylesheet" href="./css/magnific-popup.css">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="js/jyanken.js"></script>
+<script src="./js/jquery.magnific-popup.js"></script>    
+<title>じゃんけん</title>
+
+</head>
+<body>
+
+<!-- モーダルウィンドウ -->
+<div id="popup" class="white-popup">
+  <p class="popup-caution">Caution!!!</p>
+  <p class="popup-text">基本的には普通のじゃんけんゲームですが<br>勝ち続けると画面の下側に、主に男性が喜ぶ現象が起こります。</p>
+  <a href="#" id="popupClose" class="popupClose">ゲームをはじめる</a>
+</div>
+<!-- モーダルウィンドウ終わり -->
+
+<!-- じゃんけんフィールド -->
+<div class="wrapper">
+<div class="head">
+  <div class="computer">
+    <div class="comtext"><p>COM</p></div>
+    <div class="com">?</div>
+  </div>
+    <div class="result"><p>VS</p></div>
+  <div class="player">
+    <div class="plytext"><p>PLAYER</p></div>
+    <div class="ply">?</div>
+  </div>
+</div>
+    <div class="rpsBtn">
+        <button id="btnR" value="0">グー</button>
+        <button id="btnS" value="1">チョキ</button>
+        <button id="btnP" value="2">パー</button>
+    </div>
+    <div class="ctlBtn">
+        <button id="btnStart">開始</button>
+    </div>
+    <div id="girlImg" class="girlImgClass">
+      <img src="img/imaizumi1.jpg" alt="">
+      <img src="img/ono1.jpg" alt="">
+      <img src="img/shigematsu1.jpg" alt="">
+    </div>  
+</div>
+
+<!-- じゃんけんフィールド終わり -->
+<!-- 
+// <script type="text/javascript">
+//   $(window).load(function(){
+//     $.magnificPopup.open({
+//             items: {src: '#popup'},
+//             type: 'inline', 
+//             modal: true,
+//     }, 0);
+//   });
+// </script>  
+-->
+
+<noscript>
+  <p>このページはJavascriptに対応していません。Javascriptを有効にしてください。</p>
+</noscript>
+</body>
+</html>
+

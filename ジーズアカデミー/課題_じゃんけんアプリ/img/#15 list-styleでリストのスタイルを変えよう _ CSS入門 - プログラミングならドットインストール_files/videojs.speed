@@ -1,0 +1,132 @@
+/*
+ * speed
+ * https://github.com/fkoji/videojs-speed
+ *
+ * Copyright (c) 2014 F.Ko-Ji
+ * Licensed under the MIT license.
+ */
+
+(function(window, videojs) {
+    'use strict';
+
+    // define some reasonable defaults for this sweet plugin
+    var defaults = {
+        default_speed: 1
+    };
+
+    var Speed;
+
+    // create text for label
+    var createLabelText = function(speed) {
+        speed = speed * 1;
+        if (speed === 1 || speed === 2) {
+            return 'x'+Number(speed).toFixed(1);
+        } else {
+            return 'x'+Number(speed).toFixed(1);
+        }
+    };
+
+    // plugin initializer
+    Speed = function(options) {
+        var settings = videojs.util.mergeOptions(defaults, options)
+          , player = this
+          , SpeedButton
+          , SpeedMenuTitleItem
+          , SpeedMenuItem
+          , i;
+
+        // Only enable the plugin on HTML5 videos
+        if ( ! player.el().firstChild.canPlayType  ) { return; }
+
+        // be Number
+        settings.default_speed = settings.default_speed * 1;
+
+        // allow only listed speed
+        if (options.available_speeds.indexOf(settings.default_speed) === -1) {
+            settings.default_speed = defaults.default_speed;
+        }
+
+        SpeedButton = videojs.MenuButton.extend({
+            init: function(player, options, ready) {
+                videojs.MenuButton.call(this, player, options, ready);
+            }
+        });
+
+        SpeedButton.prototype.createItems = function() {
+            var items = []
+              , i;
+
+            //items.push(new SpeedMenuTitleItem(player, {}));
+
+            for (i = 0; i < options.available_speeds.length; i++) {
+                items.push(new SpeedMenuItem(player, {
+                    speed: options.available_speeds[i]
+                }));
+            }
+
+            return items;
+        };
+
+        SpeedMenuTitleItem = videojs.MenuItem.extend({
+            init: function(player, options) {
+                options.label = '速度';
+                videojs.MenuItem.call(this, player, options);
+                this.off(['click', 'tap']);
+            }
+        });
+
+        SpeedMenuItem = videojs.MenuItem.extend({
+            init: function(player, options, ready) {
+                options.label = createLabelText(options.speed);
+
+                videojs.MenuItem.call(this, player, options, ready);
+
+                this.speed = options.speed;
+
+                this.on(['click', 'tap'], function() {
+                    this.player().Speed.change(this.speed);
+                });
+
+                player.on('change_playback_speed', videojs.bind(this, function() {
+                    if (this.speed === player.playbackRate()) {
+                        this.selected(true);
+                    } else {
+                        this.selected(false);
+                    }
+                }));
+            }
+        });
+
+        var speedButton = new SpeedButton(player, {
+            'el': videojs.Component.prototype.createEl(null, {
+                className: 'vjs-speed-control vjs-menu-button vjs-control',
+                innerHTML: '<span class="vjs-current-speed">' + createLabelText(settings.default_speed) + '</span>'
+            })
+        });
+
+        player.controlBar.addChild(speedButton);
+
+        // the plugin functionality
+        player.Speed = {
+            button: speedButton,
+
+            // change playback rate
+            change: function(speed) {
+                player.playbackRate(speed);
+
+                // update button text
+                this.button.el().firstChild.innerHTML = createLabelText(speed);
+
+                player.trigger('change_playback_speed');
+            }
+        };
+
+        if (HMHM.navigator.isAndroidChrome) {
+            player.Speed.button.hide();
+        }
+    };
+
+    // register the plugin with video.js
+    videojs.plugin('Speed', Speed);
+
+})(window, window.videojs);

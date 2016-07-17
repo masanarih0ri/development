@@ -1,0 +1,250 @@
+/**
+ * Video.js Voice Selector
+ *
+ * This plugin for Video.js adds a voice selector option
+ * to the toolbar. Usage:
+ *
+ * <video>
+ *     <source data-voice="m" src="..." />
+ *     <source data-voice="w" src="..." />
+ * </video>
+ */
+
+(function(window, videojs) {
+    'use strict';
+
+    var createVoiceLabel = function(voice) {
+        if (voice === 'm') {
+            return '男性ボイス';
+        } else if (voice === 'w') {
+            return '女性ボイス';
+        }
+    };
+
+    videojs.VoiceMenuTitleItem = videojs.MenuItem.extend({
+        init: function(player, options) {
+            options.label = 'Voice';
+            videojs.MenuItem.call(this, player, options);
+            this.off(['click', 'tap']);
+        }
+    });
+
+    /***********************************************************************************
+     * Setup our voice menu items
+     ***********************************************************************************/
+    videojs.VoiceMenuItem = videojs.MenuItem.extend({
+        /** @constructor */
+        init : function(player, options){
+            // Modify options for parent MenuItem class's init.
+            options.label = createVoiceLabel(options.voice);
+            options.selected = (options.voice.toString() === player.getCurrentVoice().toString());
+
+            // Call the parent constructor
+            videojs.MenuItem.call(this, player, options);
+
+            // Store the voice as a call property
+            this.voice = options.voice;
+
+            // Register our click handler
+            this.on(['click', 'tap'], this.onClick);
+
+            // Toggle the selected class whenever the voice changes
+            player.on('changeVoice', videojs.bind(this, function() {
+                if (this.voice == player.getCurrentVoice()) {
+                    this.selected(true);
+                } else {
+                    this.selected(false);
+                }
+                player.VoiceSelector.hideMenu();
+            }));
+        }
+    });
+
+    // Handle clicks on the menu items
+    videojs.VoiceMenuItem.prototype.onClick = function() {
+        var player = this.player(),
+            video_el = player.el().firstChild,
+            current_time = player.currentTime(),
+            is_paused = player.paused(),
+            button_nodes = player.controlBar.voiceSelector.el().firstChild.children,
+            button_node_count = button_nodes.length,
+            expected_voice;
+        
+        // Do nothing if we aren't changing voices
+        if (player.getCurrentVoice() == this.voice) { return; }
+        
+        // Make sure the loadedmetadata event will fire
+        if ('none' == video_el.preload) { video_el.preload = 'metadata'; }
+
+        if (typeof player.getCurrentRes === 'undefined') {
+            expected_voice = player.availableVoice[this.voice][0];
+        } else {
+            if (player.getCurrentRes() == 360) {
+                expected_voice = player.availableVoice[this.voice][0];
+            } else {
+                expected_voice = player.availableVoice[this.voice][1];
+            }
+        }
+
+        // Change the source and make sure we don't start the video over        
+        player.src(expected_voice).one('loadedmetadata', function() {
+            player.currentTime(current_time);
+            
+            if (!is_paused) { player.play(); }
+        });
+
+        // Save the newly selected voice in our player options property
+        player.currentVoice = this.voice;
+
+        // Update the button text
+        while (button_node_count > 0) {
+            button_node_count--;
+
+            if ('vjs-current-voice' == button_nodes[button_node_count].className) {
+                button_nodes[button_node_count].innerHTML = createVoiceLabel( this.voice );
+                break;
+            }
+        }
+
+        // Update the classes to reflect the currently selected voice
+        player.trigger('changeVoice');
+    };
+
+    /***********************************************************************************
+     * Define our voice selector button
+     ***********************************************************************************/
+    videojs.VoiceSelector = videojs.MenuButton.extend({
+        /** @constructor */
+        init : function(player, options) {
+            // Add our list of available voices to the player object
+            player.availableVoice = options.available_voice;
+
+            // Call the parent constructor
+            videojs.MenuButton.call(this, player, options);
+
+            /*this.on('mouseover', function() {
+                this.menu.lockShowing();
+            });
+            this.on('mouseout', function() {
+                //this.menu.unlockShowing();
+            });*/
+        }
+    });
+
+    // Create a menu item for each available voice
+    videojs.VoiceSelector.prototype.createItems = function() {        
+        var player = this.player(),
+            items = [],
+            current_voice;
+
+        items.push(new videojs.VoiceMenuTitleItem(player, {}));
+
+        // Add an item for each available voice
+        for (current_voice in player.availableVoice) {
+            // Don't add an item for the length attribute
+            if ('length' == current_voice) { continue; }
+
+            items.push(new videojs.VoiceMenuItem(player, {
+                voice : current_voice
+            }));
+        }
+
+        return items;
+    };
+    
+    /***********************************************************************************
+     * Register the plugin with videojs, main plugin function
+     ***********************************************************************************/
+    videojs.plugin('VoiceSelector', function(options) {
+        
+        // Only enable the plugin on HTML5 videos
+        //if (!this.el().firstChild.canPlayType) { return; }
+        
+        // Override default options with those provided
+        var player = this,
+            sources = player.options().sources,
+            i = sources.length,
+            j,
+            found_type,
+            settings = videojs.util.mergeOptions({
+                default_voice: null        // (string)    The voice that should be selected by default
+            }, options || {} ),
+            available_voice = { length : 0 },
+            current_voice,
+            voiceSelector;
+
+        // Get all of the available voices
+        while (i > 0) {
+            i--;
+
+            // Skip sources that don't have data-voice attributes
+            if (!sources[i]['data-voice']) { continue; }
+
+            current_voice = sources[i]['data-voice'];
+
+            if (typeof available_voice[current_voice] !== 'object') {
+                available_voice[current_voice] = [];
+                available_voice.length++;
+            }
+
+            available_voice[current_voice].push(sources[i]);
+        }
+
+        // Make sure we have at least 2 available voices before we add the button
+        if (available_voice.length < 2) { return; }
+
+        // Set the current voice
+        if (settings.default_voice && available_voice[settings.default_voice]) {
+            if (typeof player.getCurrentRes === 'undefined') {
+                if (settings.default_voice === 'w') {
+                    player.src(available_voice[settings.default_voice]);
+                }
+            }
+            player.currentVoice = settings.default_voice;
+        }
+
+        // Helper function to get the current voice
+        player.getCurrentVoice = function() {
+            if (typeof player.currentVoice !== 'undefined') {
+                return player.currentVoice;
+            } else {
+                try {
+                    return voice = player.options().sources[0]['data-voice'];
+                } catch(e) {
+                    return '';
+                }
+            }
+        };
+
+        // Get the started voice
+        current_voice = player.getCurrentVoice();
+
+        if (current_voice) { current_voice = createVoiceLabel(current_voice); }
+
+        // Add the voice selector button
+        voiceSelector = new videojs.VoiceSelector(player, {
+            el : videojs.Component.prototype.createEl(null, {
+                className  : 'vjs-voice-button vjs-menu-button vjs-control',
+                innerHTML  : '<div class="vjs-control-content"><span class="vjs-current-voice">' + (current_voice || 'Voice') + '</span></div>',
+                role       : 'button',
+                'aria-live': 'polite', // let the screen reader user know that the text of the button may change
+                tabIndex   : 0
+            }),
+            available_voice: available_voice
+        });
+
+        // Add the button to the control bar object and the DOM
+        player.controlBar.voiceSelector = player.controlBar.addChild( voiceSelector );
+
+        player.VoiceSelector = {
+            button: voiceSelector,
+            menu: voiceSelector.children()[0],
+            hideMenu: function() {
+                if (this.menu.hasClass('vjs-lock-showing')) {
+                    this.menu.trigger('mouseout');
+                    this.button.trigger('click');
+                }
+            }
+        };
+    });
+})(window, window.videojs);

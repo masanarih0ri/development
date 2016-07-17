@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///Users/horimasanari/Desktop/memopad_submission/official/memopad.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./HTML5を使ったメモ帳_files/common.css">
+	<script src="./HTML5を使ったメモ帳_files/jquery.min.js"></script>
+	<title>HTML5を使ったメモ帳</title>
+</head>
+<body>
+	<h1>メモ帳</h1>
+	<textarea name="40" id="memo" cols="40" rows="10"></textarea>
+	<p><input type="button" id="save" value="保存"></p>
+	<p><input type="button" id="clear" value="消去"></p>
+	<p><input type="button" id="extract" value="出力"></p>
+	<div id="memoText" style="
+    width: 960px;
+">
+	</div>
+	
+	<!-- <div id="memoText"></div> -->
+<!-- <input type="button" id="save" value="保存">  -->
+
+
+	<script>
+	/* localStrageにアクセス
+	localStorage.setItem('memo（データにつける名前）','内容（データ内容')　書き込み
+	localStorage.getItem('memo')　呼び出し
+	localStorage.removeItem('memo') データを消去
+	localStorage.clear();　全消去
+	IEでは色々罠がある。
+	*/
+	$(function(){
+		//ページの中身があった際にはそれを表示する
+		if(localStorage.getItem('memo')){
+			$('#memoText').val(localStorage.getItem('memo'));
+		}
+		//保存ボタンを押したら内容がlocalstorageに保存される
+		$('#save').on('click',function(){
+			localStorage.setItem('memo',$('#memo').val());
+		});
+
+		$('#clear').on('click',function(){
+			$('#memoText').val('');
+			localStorage.removeItem('memo');
+			// 今回はキーが一つしかないのでlocalStorage.clear();でもOK
+
+		});
+		// $('#memo').bind('keyup',function(){
+		// 	localStorage.setItem('memo',$('#memo').val())
+		// });
+		$('#extract').on('click',function(){
+			$('#memoText').val(localStorage.getItem('memo'));
+		});
+
+	});
+	</script>
+	
+
+</body></html>

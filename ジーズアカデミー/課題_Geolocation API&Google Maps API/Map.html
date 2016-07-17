@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>two point route search</title>
+    <link rel="stylesheet" href="./css/remodal-default-theme.css">
+    <link rel="stylesheet" href="./css/remodal.css">
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBouRngjBWxP4S7H1wqfShSsPkserg0xBw"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./js/remodal.js"></script>
+<style>
+	#map {
+ width: 100%;
+ height: 500px;
+}
+
+#content{
+    margin: 0;
+    padding: 0
+}
+#content h1{
+    text-align: center;
+    font-size: 24px;
+}
+
+#btn {
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    color: white;
+    width: 20%;
+    text-align: center;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#btn:hover{
+    opacity: 0.7;
+}
+
+</style>
+</head>
+<body>
+<div id="content">
+    <h1>（仮）R-STOREのおしゃれ不動産マップ</h1>
+    <p><a href="#notice" id="btn" class="btn">使い方を見る</a></p>
+</div>  
+
+<div class="remodal" data-remodal-id="notice" id="modal-area">
+    <!-- モーダルのタイトル -->
+    <h2>R-STOREのおしゃれ不動産マップの使い方</h2>
+    <!-- モーダル表示の本文 -->
+    <p>1.自分の住みたい物件のエリアをなんとなく頭に描く。</p>
+    <p>2.そのエリアにある物件のマーカーをクリックする。</p>
+    <p>3.マーカーから飛んだ先で物件の詳細を見る。</p>
+    <br>
+    <!-- キャンセルボタン -->
+   <!--  <a class="remodal-cancel" href="#">Cancel</a> -->
+    <!-- OKボタン -->
+    <a class="remodal-confirm" href="#">OK</a>
+</div>
+<div id="map"></div>
+
+ <script>
+function map_canvas() {
+//マーカーの情報を配列に入れる
+  var data = new Array();
+//緯度と経度とurlの情報をdata内に入れる。以下、要編集。
+
+//R-STORE OFFICE
+    data.push({
+      lat: '35.629343', //緯度
+      lng: '139.715401', //経度
+      content: 'R-STORE',
+      url: 'http://www.r-store.jp/' //リンク先
+    });
+//代々木公園 立地と配置
+    data.push({
+      lat: '35.6690733000',
+      lng: '139.6904072000',
+      url: 'http://www.r-store.jp/room/82030'
+  });
+//中目黒 ウイスキーが、お好きでしょ
+    data.push({
+      lat: '35.6497423000',
+      lng: '139.6913938000',
+      url: 'http://www.r-store.jp/room/81985'
+  });
+
+//綱島 住めば都の綱島ライフ(withペット) 
+    data.push({
+      lat: '35.5329647000',
+      lng: '139.6578051000',
+      url: 'http://www.r-store.jp/room/81922'
+  });
+
+//巣鴨  キッチンびいき
+    data.push({
+      lat: '35.7408057000',
+      lng: '139.7289094000',
+      url: 'http://www.r-store.jp/room/82592'
+  });
+
+//狛江　イイトコドリレトロ
+    data.push({
+      lat: '35.6388657000',
+      lng: '139.5746126000',
+      url: 'http://www.r-store.jp/room/81264'
+  });
+
+//等々力 白と無垢のデザイナーズ
+    data.push({
+      lat: '35.6084687000',
+      lng: '139.6432802000',
+      url: 'http://www.r-store.jp/room/82516'
+  });
+//緑が丘 1DK+土間
+    data.push({
+      lat: '35.6079441000',
+      lng: '139.6779240000',
+      url: 'http://www.r-store.jp/room/20466'
+  });
+//祐天寺 コンパクトカフェ
+    data.push({
+      lat: '35.6401289000',
+      lng: '139.6899808000',
+      url: 'http://www.r-store.jp/room/79980'
+  });
+//目黒 ゴージャスバスタイム
+    data.push({
+      lat: '35.6351919000',
+      lng: '139.7043180000',
+      url: 'http://www.r-store.jp/room/80734'
+  });
+
+    //10終わり
+//中目黒 屋根裏生活
+    data.push({
+      lat: '35.6369053000', //緯度
+      lng: '139.7043180000', //経度
+      url: 'http://www.r-store.jp/room/80014' //リンク先
+    });
+//中目黒 72's Vintage
+    data.push({
+      lat: '35.6420908000',
+      lng: '139.7049483000',
+      url: 'http://www.r-store.jp/room/79389'
+  });
+//中目黒 白の秘密基地
+    data.push({
+      lat: '35.6422518000',
+      lng: '139.7025985000',
+      url: 'http://www.r-store.jp/room/79086'
+  });
+//本所吾妻橋 オーナーですけど何か？
+    data.push({
+      lat: '35.7031943000',
+      lng: '139.8037358000',
+      url: 'http://www.r-store.jp/room/80164'
+  });
+//駒沢大学 ハンサムハウス
+    data.push({
+      lat: '35.6356457000',
+      lng: '139.6577167000',
+      url: 'http://www.r-store.jp/room/82538'
+  });
+//荻窪 オトナの秘密基地
+    data.push({
+      lat: '35.7068426000',
+      lng: '139.6180588000',
+      url: 'http://www.r-store.jp/room/78342'
+  });
+//三軒茶屋 バイク好き集合！
+    data.push({
+      lat: '35.6414177000',
+      lng: '139.6730540000',
+      url: 'http://www.r-store.jp/room/69389'
+  });
+
+//芝公園 伝説のリノベSOHO
+    data.push({
+      lat: '35.6513050000',
+      lng: '139.7524966000',
+      url: 'http://www.r-store.jp/room/82282'
+  });
+//初台 パーケットリノベ
+    data.push({
+      lat: '35.6851629000',
+      lng: '139.6860987000',
+      url: 'http://www.r-store.jp/room/82249'
+  });
+//千葉 平屋に住まう
+    data.push({
+      lat: '35.6164033000',
+      lng: '140.1410431000',
+      url: 'http://www.r-store.jp/room/30364'
+  });
+
+    //20終わり
+//千歳船橋 こじんまりアパートメントリノベ
+    data.push({
+      lat: '35.6397728000', //緯度
+      lng: '139.6222585000', //経度
+      url: 'http://www.r-store.jp/room/31295' //リンク先
+    });
+//両国 やっぱり中身が重要
+    data.push({
+      lat: '35.6949731000',
+      lng: '139.7935703000',
+      url: 'http://www.r-store.jp/room/81622'
+  });
+//笹塚 ツリーハウスから都会を…。
+    data.push({
+      lat: '35.6753635000',
+      lng: '139.6688338000',
+      url: 'http://www.r-store.jp/room/74173'
+  });
+//練馬 DIYの門を叩く〜その後〜
+    data.push({
+      lat: '35.7394953000',
+      lng: '139.6613233000',
+      url: 'http://www.r-store.jp/room/80797'
+  });
+//信濃町 質のいいリノベ 
+    data.push({
+      lat: '35.6814339000',
+      lng: '139.7241340000',
+      url: 'http://www.r-store.jp/room/74901'
+  });
+//沼袋 ミニ和室あります
+    data.push({
+      lat: '35.7199167000',
+      lng: '139.6633128000',
+      url: 'http://www.r-store.jp/room/77843'
+  });
+//中野坂上 穴ぐら基地
+    data.push({
+      lat: '35.6994053000',
+      lng: '139.6761405000',
+      url: 'http://www.r-store.jp/room/81268'
+  });
+//志村三丁目 昭和ノスタルジー
+    data.push({
+      lat: '35.7720254000',
+      lng: '139.6808928000',
+      url: 'http://www.r-store.jp/room/78860'
+  });
+//三軒茶屋 ナチュラルな三茶暮らし。
+    data.push({
+      lat: '35.6397871000',
+      lng: '139.6656019000',
+      url: 'http://www.r-store.jp/room/80942'
+  });
+//江戸川橋 22畳のワイドスパン 
+    data.push({
+      lat: '35.7103143000',
+      lng: '139.7388483000',
+      url: 'http://www.r-store.jp/room/80512'
+  });
+
+    //30終わり
+
+
+//初期位置に、上記配列の一番初めの緯度経度を格納
+  var latlng = new google.maps.LatLng(data[0].lat, data[0].lng); //データの0番目のlatとlngを初期値に設定
+
+//地図の設定を決める
+  var opts = {
+    zoom: 14,//地図の縮尺
+    center: latlng, //初期位置
+    scrollwheel: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP//地図形態
+    };
+ 
+//地図を表示させるエリアのidを指定
+  var map = new google.maps.Map(document.getElementById('map'), opts);
+  // var markers = new Array();
+ 
+//マーカーを配置するループを実行
+  for (i = 0; i < data.length; i++) {
+    var markers = new google.maps.Marker({
+      position: new google.maps.LatLng(data[i].lat, data[i].lng), //マーカの位置を指定しdataのi番目の緯度と経度をセット
+      map: map //map = new google.maps.Map(document.getElementById('map'),opts)これによってマップを生成。
+    });
+    // markerInfo(markers[i],data[i].content);
+    //クリックしたら指定したurlに遷移するイベント
+    google.maps.event.addListener(markers, 'click', (function(url){//マーカーをクリックした時に、下記の関数が走る
+      return function(){ location.href = url; };//locationのhref要素がurlとなり、そこへ飛ぶ
+    })(data[i].url));
+  }
+}
+
+//マーカーをマウスオーバー
+// function markerInfo(marker, name) {
+//     google.maps.event.addListener(marker, 'mouseover', function (event) {
+//         new google.maps.InfoWindow({
+//             content: name
+//         }).open(marker.getMap(), marker);
+//     });
+// }
+//マーカーをマウスオーバー 終わり
+
+//地図描画を実行
+google.maps.event.addDomListener(window, 'load', map_canvas);
+
+// 
+</script>
+</body>
+</html>

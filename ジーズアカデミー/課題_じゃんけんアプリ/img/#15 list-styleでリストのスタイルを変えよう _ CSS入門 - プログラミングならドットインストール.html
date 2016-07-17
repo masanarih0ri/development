@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://dotinstall.com/lessons/basic_css_v3/31715 -->
+<html lang="ja" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>#15 list-styleでリストのスタイルを変えよう | CSS入門 - プログラミングならドットインストール</title>
+<meta name="description" content="CSS入門の#15回: リストに関するプロパティについて説明していきます。">
+<meta name="author" content="dotinstall">
+<meta name="copyright" content="Copyright (C) dotinstall.com">
+
+<!--
+
+[エンジニア、プログラマのあるある話]
+
+"クロージャはよく聞くがまったく理解していない"
+
+投稿は Twitter / @dotinstall までお寄せください。
+
+-->
+
+<link rel="canonical" href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール.html">
+<link rel="shortcut icon" href="http://dotinstall.com/favicon.ico">
+<link rel="index" href="http://dotinstall.com/">
+<link rel="stylesheet" href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/cf.css">
+<link rel="alternate" type="application/rss+xml" title="新着レッスンRSS" href="http://dotinstall.com/lessons.rss">
+<link rel="alternate" type="application/rss+xml" title="新着補足情報RSS" href="http://dotinstall.com/lessons/knowledge.rss">
+<script id="hatena-bb" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/bookmark_button_wo_al.js"></script><script id="facebook-jssdk" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/sdk.js"></script><script id="twitter-wjs" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/widgets.js"></script><script type="text/javascript" async="" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/bi.js"></script><script async="" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/analytics.js"></script><script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/jquery-1.10.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/jquery.lightbox-0.5.css">
+<link rel="stylesheet" href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/jquery.circliful.css">
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/jquery.circliful.min.js"></script>
+<link rel="stylesheet" href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/bootstrap_328.css">
+<link rel="stylesheet" href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/font-awesome.min.css">
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/prettify.css" rel="stylesheet">
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/prettify.js"></script>
+
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/video-js.min" rel="stylesheet">
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-change-speed" rel="stylesheet">
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-quality-selector.css" rel="stylesheet">
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-card.css" rel="stylesheet">
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-voice-selector" rel="stylesheet">
+<link href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-dotinstall-custom" rel="stylesheet">
+
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/ga.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/jquery.lightbox-0.5.pack.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/back-top.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/bootstrap_328.min.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/underscore.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/main.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/bundle.min.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/dotinstall.bundle.min.js"></script>
+
+<!-- Open Graph -->
+<meta property="og:title" content="#15 list-styleでリストのスタイルを変えよう | CSS入門">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://dotinstall.com/lessons/basic_css_v3/31715">
+<meta property="og:site_name" content="ドットインストール">
+<meta property="og:description" content="リストに関するプロパティについて説明していきます。">
+<meta property="og:image" content="http://dotinstall.com/img/logo_200x200.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="fb:admins" content="569511872">
+
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><script type="text/javascript" charset="utf-8" async="" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/button.c44c2dc193c555561d5830b3b543eb26.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow-x:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, "hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+
+<body onload="prettyPrint();"><div id="fb-root" style="display:none;" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f8419b538" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/ping.html" style="display: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_http" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/TlA_zCeMkxl.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_https" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/TlA_zCeMkxl(1).html" style="border: none;"></iframe></div></div></div>
+
+
+
+
+<div class="navbar navbar-fixed-top" id="lesson_show_page">
+<div class="navbar-inner">
+<div class="container">
+<h1 class="premiumLogo">
+<a href="http://dotinstall.com/"><span>ドットインストール - 3分動画でマスターする初心者向けプログラミング学習サイト</span></a>
+</h1>
+<ul class="nav" style="position:relative;font-size:12px;">
+<li><a href="http://dotinstall.com/home">マイページ</a></li>
+<li class="active"><a href="http://dotinstall.com/lessons">レッスン一覧</a></li>
+<li><a href="http://dotinstall.com/premium"><span style="font-weight:bold;color:#f39800;">プレミアム会員</span></a></li>
+<li><a href="http://dotinstall.com/business">法人でのご利用</a></li>
+<li>
+<form action="http://dotinstall.com/search" id="topbar_search" class="form pull-left enable-incremental-lesson-search" onsubmit="if ($(this).find(&#39;.q&#39;).val() === &#39;&#39;) { return false; }">
+<div class="input-append" style="padding:12px 0 0 0;">
+<div class="btn-group">
+<input type="text" style="width:100px;font-size:12px;" placeholder="レッスン検索" name="q" class="q" id="q_in_topbar" value="" autocomplete="off">
+<input type="hidden" name="f" value="topbar">
+<button type="submit" class="btn"><i class="icon-search"></i></button>
+</div>
+</div>
+<div id="incremental"></div>
+</form>
+</li>
+</ul>
+<ul class="nav pull-right">
+<li class="dropdown">
+<a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="dropdown-toggle" data-toggle="dropdown">
+<img src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/iqUnekhX_normal.jpeg" class="topBarIcon">
+<span>masanari... <b class="caret"></b></span>
+</a>
+<ul class="dropdown-menu">
+<li><a href="http://dotinstall.com/home">マイページ</a></li>
+<li><a href="http://dotinstall.com/users/masanarihori">プロフィール</a></li> 
+<li><a href="https://dotinstall.com/user/settings">設定変更</a></li>
+<li><a href="http://dotinstall.com/help">ヘルプ</a></li>
+<li class="divider"></li> 
+<li><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" onclick="$(&#39;#logout-form&#39;).submit();">ログアウト</a><form id="logout-form" action="https://dotinstall.com/logout.php" method="post" style="display:none;"><input type="hidden" class="one_time_token" name="one_time_token" value="c2474ae107c6ce9cf7e1cc772dd4243c"></form></li>
+</ul>
+</li>
+</ul>
+</div><!--/container -->
+</div><!-- /navbar-inner -->
+</div><!-- /navbar -->
+
+<div class="container mt60">
+
+<div class="row">
+<div class="span11" id="main">
+
+<ul class="breadcrumb">
+<li><a href="http://dotinstall.com/">トップ</a> <span class="divider">/</span></li>
+<li><a href="http://dotinstall.com/home">マイページ</a> <span class="divider">/</span></li>
+<li><a href="http://dotinstall.com/lessons">レッスン一覧</a> <span class="divider">/</span></li>
+<li style="max-width:160px;"><!-- for ie8 -->
+<span class="ls-bc-pn text-ellipsis"><a href="http://dotinstall.com/lessons/basic_css_v3">CSS入門</a></span>
+<span class="divider">/</span>
+</li>
+<li class="active bc-lt text-ellipsis">#15 list-styleでリストのスタイルを変えよう</li>
+</ul>
+
+
+<h1 class="s18b page-header" style="margin-bottom:7px">
+    <div id="lesson_star" class="flr starSprite " title="このレッスンをブックマークする"></div>
+    #15 list-styleでリストのスタイルを変えよう
+        </h1>
+
+<p style="padding-bottom:3px">リストに関するプロパティについて説明していきます。</p>
+
+<div class="mb15 posr"><!-- movie section start -->
+
+<div id="popup_video" data-ename="basic_css_v3" data-lesson-id="31715" data-disabled="" class="posa" style="top:-25px;right:4px;"><img src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/popup.png" title="動画をポップアップで表示" class="linkLike"></div>
+
+<div id="video_error_message" class="alert alert-warning" style="display:none;">
+動画の読み込みに失敗しました。しばらく待ってからリロードしてみてください。解決しない場合は<a href="http://dotinstall.com/help#video_trouble" target="_blank">ヘルプの「動画が見られない場合について」</a>もご覧ください。
+</div>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/video.js"></script>
+
+<script>
+    videojs.options.flash.swf = "http://dotinstall.com/video-js.swf";
+</script>
+
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-quality-selector.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/basic_css_v3.js"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-card.js"></script>
+
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs.speed"></script>
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/videojs-voice-selector(1)"></script>
+
+
+<div id="flash_warning" class="alert alert-error" style="display:none;">お使いのブラウザで動画を再生するには <a href="http://get.adobe.com/jp/flashplayer/" target="_blank">Adobe Flash Player</a> のインストールが必要です。</div>
+
+
+<div preload="auto" oncontextmenu="return false;" class="video-js vjs-default-skin vjs-controls-enabled vjs-has-started vjs-playing vjs-user-inactive" id="videojs_player" style="opacity: 1; width: 640px; height: 360px;"><video style="opacity: 1;" id="videojs_player_html5_api" class="vjs-tech" oncontextmenu="return false;" preload="auto" src="http://player.vimeo.com/external/122507440.hd.mp4?s=8b7c65b2e811e2ea4e0c1dad2fb42b80780f54cd&amp;profile_id=113&amp;oauth2_token_id=56271471">
+  <source src="http://player.vimeo.com/external/122507440.hd.mp4?s=8b7c65b2e811e2ea4e0c1dad2fb42b80780f54cd&amp;profile_id=113&amp;oauth2_token_id=56271471" data-res="720" data-voice="m" type="video/mp4">
+  <source src="http://player.vimeo.com/external/122507440.sd.mp4?s=88aeac28f23c54b80b23b478e49cd8ffff2e56e2&amp;profile_id=112&amp;oauth2_token_id=56271471" data-res="360" data-voice="m" type="video/mp4">
+      <source src="http://player.vimeo.com/external/123603343.hd.mp4?s=9fd2bc8179dfd38ac4d0b6069119cf3d97433399&amp;profile_id=113&amp;oauth2_token_id=56271471" data-res="720" data-voice="w" type="video/mp4">
+    <source src="http://player.vimeo.com/external/123603343.sd.mp4?s=ed064abec5f97b14e63d77e34ca9ff0a36b52474&amp;profile_id=112&amp;oauth2_token_id=56271471" data-res="360" data-voice="w" type="video/mp4">
+  </video><div></div><div class="vjs-poster vjs-hidden" tabindex="-1"></div><div class="vjs-loading-spinner"></div><div class="vjs-text-track-display vjs-hidden"></div><div class="vjs-big-play-button" role="button" aria-live="polite" tabindex="0" aria-label="play video"><span aria-hidden="true"></span></div><div class="vjs-control-bar"><div class="vjs-play-control vjs-control  vjs-playing" role="button" aria-live="polite" tabindex="0"><div class="vjs-control-content"><span class="vjs-control-text">Pause</span></div></div><div class="vjs-current-time vjs-time-controls vjs-control"><div class="vjs-current-time-display" aria-live="off"><span class="vjs-control-text">Current Time</span> 1:41</div></div><div class="vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-controls vjs-control"><div class="vjs-duration-display" aria-live="off"><span class="vjs-control-text">Duration Time</span> 2:59</div></div><div class="vjs-remaining-time vjs-time-controls vjs-control"><div class="vjs-remaining-time-display" aria-live="off"><span class="vjs-control-text">Remaining Time</span> -1:17</div></div><div class="vjs-live-controls vjs-control vjs-hidden"><div class="vjs-live-display" aria-live="off"><span class="vjs-control-text">Stream Type</span>LIVE</div></div><div class="vjs-progress-control vjs-control"><div role="slider" aria-valuenow="56.74" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-progress-holder vjs-slider" aria-label="video progress bar" aria-valuetext="1:41"><div class="vjs-load-progress" style="width: 75.2737%;"><span class="vjs-control-text" style="left: 0%; width: 100%;"><span>Loaded</span>: 0%</span></div><div class="vjs-play-progress" style="width: 56.59%;"><span class="vjs-control-text"><span>Progress</span>: 0%</span></div><div class="vjs-seek-handle vjs-slider-handle" aria-live="off" style="left: 55.41%;"><span class="vjs-control-text">1:41</span></div></div></div><div class="vjs-fullscreen-control vjs-control " role="button" aria-live="polite" tabindex="0"><div class="vjs-control-content"><span class="vjs-control-text">Fullscreen</span></div></div><div class="vjs-volume-control vjs-control"><div role="slider" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-volume-bar vjs-slider" aria-label="volume level" aria-valuetext="90%"><div class="vjs-volume-level" style="width: 86%;"><span class="vjs-control-text"></span></div><div class="vjs-volume-handle vjs-slider-handle" style="left: 81%;"><span class="vjs-control-text">00:00</span></div></div></div><div class="vjs-mute-control vjs-control vjs-vol-3" role="button" aria-live="polite" tabindex="0"><div><span class="vjs-control-text">Mute</span></div></div><div class="vjs-playback-rate vjs-menu-button vjs-control  vjs-hidden" role="button" aria-live="polite" tabindex="0" aria-haspopup="true"><div class="vjs-control-content"><span class="vjs-control-text">Playback Rate</span><div class="vjs-menu"><ul class="vjs-menu-content"></ul></div></div><div class="vjs-playback-rate-value">1</div></div><div class="vjs-subtitles-button vjs-menu-button vjs-control  vjs-hidden" role="button" aria-live="polite" tabindex="0" aria-haspopup="true" aria-label="Subtitles Menu"><div class="vjs-control-content"><span class="vjs-control-text">Subtitles</span><div class="vjs-menu"><ul class="vjs-menu-content"><li class="vjs-menu-item vjs-selected" role="button" aria-live="polite" tabindex="0" aria-selected="true">subtitles off</li></ul></div></div></div><div class="vjs-captions-button vjs-menu-button vjs-control  vjs-hidden" role="button" aria-live="polite" tabindex="0" aria-haspopup="true" aria-label="Captions Menu"><div class="vjs-control-content"><span class="vjs-control-text">Captions</span><div class="vjs-menu"><ul class="vjs-menu-content"><li class="vjs-menu-item vjs-selected" role="button" aria-live="polite" tabindex="0" aria-selected="true">captions off</li></ul></div></div></div><div class="vjs-chapters-button vjs-menu-button vjs-control  vjs-hidden" role="button" aria-live="polite" tabindex="0" aria-haspopup="true" aria-label="Chapters Menu"><div class="vjs-control-content"><span class="vjs-control-text">Chapters</span><div class="vjs-menu"><ul class="vjs-menu-content"><li class="vjs-menu-title">Chapters</li></ul></div></div></div><div class="vjs-speed-control vjs-menu-button vjs-control" aria-haspopup="true" role="button"><span class="vjs-current-speed">x1.0</span><div class="vjs-menu"><ul class="vjs-menu-content"><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x2.0</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x1.8</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x1.6</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x1.4</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x1.2</li><li class="vjs-menu-item vjs-selected" role="button" aria-live="polite" tabindex="0" aria-selected="true">x1.0</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x0.9</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x0.8</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">x0.7</li></ul></div></div><div class="vjs-voice-button vjs-menu-button vjs-control" role="button" aria-live="polite" tabindex="0" aria-haspopup="true"><div class="vjs-control-content"><span class="vjs-current-voice">男性ボイス</span></div><div class="vjs-menu"><ul class="vjs-menu-content"><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">Voice</li><li class="vjs-menu-item" role="button" aria-live="polite" tabindex="0" aria-selected="false">女性ボイス</li><li class="vjs-menu-item vjs-selected" role="button" aria-live="polite" tabindex="0" aria-selected="true">男性ボイス</li></ul></div></div><div class="vjs-res-button vjs-menu-button vjs-control" role="button" aria-live="polite" tabindex="0"><div class="vjs-control-content"><span class="vjs-current-res vjs-res-high">HD</span></div></div></div><div class="vjs-error-display"><div></div></div><div class="vjs-caption-settings vjs-modal-overlay vjs-hidden"><div class="vjs-tracksettings"><div class="vjs-tracksettings-colors"><div class="vjs-fg-color vjs-tracksetting"><label class="vjs-label">Foreground</label><select><option value="">---</option><option value="#FFF">White</option><option value="#000">Black</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-text-opacity vjs-opacity"><select><option value="">---</option><option value="1">Opaque</option><option value="0.5">Semi-Opaque</option></select></span></div><div class="vjs-bg-color vjs-tracksetting"><label class="vjs-label">Background</label><select><option value="">---</option><option value="#FFF">White</option><option value="#000">Black</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-bg-opacity vjs-opacity"><select><option value="">---</option><option value="1">Opaque</option><option value="0.5">Semi-Transparent</option><option value="0">Transparent</option></select></span></div><div class="window-color vjs-tracksetting"><label class="vjs-label">Window</label><select><option value="">---</option><option value="#FFF">White</option><option value="#000">Black</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-window-opacity vjs-opacity"><select><option value="">---</option><option value="1">Opaque</option><option value="0.5">Semi-Transparent</option><option value="0">Transparent</option></select></span></div></div><div class="vjs-tracksettings-font"><div class="vjs-font-percent vjs-tracksetting"><label class="vjs-label">Font Size</label><select><option value="0.50">50%</option><option value="0.75">75%</option><option value="1.00" selected="">100%</option><option value="1.25">125%</option><option value="1.50">150%</option><option value="1.75">175%</option><option value="2.00">200%</option><option value="3.00">300%</option><option value="4.00">400%</option></select></div><div class="vjs-edge-style vjs-tracksetting"><label class="vjs-label">Text Edge Style</label><select><option value="none">None</option><option value="raised">Raised</option><option value="depressed">Depressed</option><option value="uniform">Uniform</option><option value="dropshadow">Dropshadow</option></select></div><div class="vjs-font-family vjs-tracksetting"><label class="vjs-label">Font Family</label><select><option value="">Default</option><option value="monospaceSerif">Monospace Serif</option><option value="proportionalSerif">Proportional Serif</option><option value="monospaceSansSerif">Monospace Sans-Serif</option><option value="proportionalSansSerif">Proportional Sans-Serif</option><option value="casual">Casual</option><option value="script">Script</option><option value="small-caps">Small Caps</option></select></div></div></div><div class="vjs-tracksettings-controls"><button class="vjs-default-button">Defaults</button><button class="vjs-done-button">Done</button></div></div></div>
+
+<script>
+HMHM.movie.availableQualities = ['720', '360'];
+HMHM.movie.hasWomanVoice = true;
+</script>
+
+
+
+<script>
+$(function() {
+    if ($('#videojs_player')[0]) {
+        if (window.addEventListener) {
+            window.addEventListener('message', HMHM.movie.vimeo.onMessageReceived, false);
+        } else {
+            window.attachEvent('onmessage', HMHM.movie.vimeo.onMessageReceived);
+        }
+    } else {
+
+        if ($('#videojs_player').length === 1
+            && HMHM.navigator.isFirefox
+            && !HMHM.navigator.isAvailableFlash())
+        {
+            $('#flash_warning').show();
+        }
+    }
+});
+</script>
+
+
+<div class="videoCommands">
+    <a class="btn lh24 flr" id="toggle_text" style="font-size:10px;"><span class="showText">文字起こしを<span id="toggle_text_label">閉じる</span></span></a>
+
+    <a href="http://dotinstall.com/lessons/basic_css_v3/31714" class="btn lh24 " style="font-size:10px;">« 前へ</a>
+            <button id="lesson-complete-button" class="btn lh24" style="font-size:13px;font-weight:bold;width:176px;min-width:150px;">
+          <span id="completeButtonLabel">
+            完了          </span>
+        </button>
+        <a href="http://dotinstall.com/lessons/basic_css_v3/31716" class="btn lh24 " style="font-size:10px;">次へ »</a>
+</div><!-- /videoCommands -->
+
+<div id="caption_base_top" data-is-premium="true"></div><!-- don't remove! -->
+<div id="caption_wrapper">
+
+  
+    
+            <div id="caption" style="height:170px;overflow-y:scroll;">
+                  <div class="caption-row" data-time="0:02">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:02</a></span></div>
+            <div class="cbody">
+              さて、次は list に関するプロパティについて見ていきましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:06">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:06</a></span></div>
+            <div class="cbody">
+              いくつかあるのですが、まずは、list-style-type ですね。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:10">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:10</a></span></div>
+            <div class="cbody">
+              これは何かというと、こちらのリストの前にあるマーカーのスタイルを変えるために使うプロパティになります。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:18">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:18</a></span></div>
+            <div class="cbody">
+              いくつか値を取りうるのですが、まず disc だと黒丸、白丸だと circle、それから四角だと square、それから decimal だと連番になります。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:30">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:30</a></span></div>
+            <div class="cbody">
+              それから lower-alpha とすると a、b、c といったアルファベットにしてくれますのでそれも覚えておきましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:37">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:37</a></span></div>
+            <div class="cbody">
+              他にもたくさん種類あるので、興味がある人は list-style-type で検索してみてください。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:42">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:42</a></span></div>
+            <div class="cbody">
+              それから、list-style-image というプロパティもあります。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:46">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:46</a></span></div>
+            <div class="cbody">
+              これは画像のファイル名を指定すると、こちらのマーカーを画像にしてくれるので、これも後で見ていきましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:52">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:52</a></span></div>
+            <div class="cbody">
+              それから list-style-position というプロパティもあります。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="0:59">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">0:59</a></span></div>
+            <div class="cbody">
+              これは inside と outside が指定できます。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:03">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:03</a></span></div>
+            <div class="cbody">
+              こちらの outside がだいたいデフォルトなのですが、inside という値を取ることによってマーカーをリストの中に入れることもできます。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:11">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:11</a></span></div>
+            <div class="cbody">
+              これも後で見ていきましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:12">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:12</a></span></div>
+            <div class="cbody">
+              こうしたプロパティなのですが、list-style というプロパティで一気に指定することができます。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:20">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:20</a></span></div>
+            <div class="cbody">
+              順不同且つ省略可能なのでいろいろ試してみましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:24">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:24</a></span></div>
+            <div class="cbody">
+              「list-style」で「inside」とすると、マーカーが内側に行ってくれます。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:30">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:30</a></span></div>
+            <div class="cbody">
+              さらにマーカーの形を変えてあげましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:33">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:33</a></span></div>
+            <div class="cbody">
+              では今回連番にしてあげます。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row active" data-time="1:35">
+            <div class="cinfo"><span class="iconSound none on"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:35</a></span></div>
+            <div class="cbody">
+              そうしてあげると、連番になりつつ、マーカーが内側に入っているのがわかるかと思います。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:43">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:43</a></span></div>
+            <div class="cbody">
+              では、もう 1 つぐらい例を出していきましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:45">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:45</a></span></div>
+            <div class="cbody">
+              list-style で outside にしてあげつつ、lower-alpha にしてみましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:53">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:53</a></span></div>
+            <div class="cbody">
+              こうですね。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:54">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:54</a></span></div>
+            <div class="cbody">
+              こうしてあげると今度はマーカーが a、b、c になるはずです。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:57">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:57</a></span></div>
+            <div class="cbody">
+              こうですね、うまくいっています。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="1:59">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">1:59</a></span></div>
+            <div class="cbody">
+              そして、マーカーも外側に来ているので outside の設定も活きているのがわかるかと思います。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:04">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:04</a></span></div>
+            <div class="cbody">
+              それから画像を使うというのもやってみましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:07">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:07</a></span></div>
+            <div class="cbody">
+              今回、「smile.png」という画像を用意しておきました。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:14">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:14</a></span></div>
+            <div class="cbody">
+              画像を指定するにはこのように「url」と書いて、丸括弧の中にファイル名を入れてあげてください。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:22">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:22</a></span></div>
+            <div class="cbody">
+              なお、注意していただきたいのは、list-style で画像を使った場合には list-style-type の設定は上書きされるということに気をつけておきましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:32">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:32</a></span></div>
+            <div class="cbody">
+              なので、例えば、こちらで白丸を指定しても、こちら（smile.png）が優先されるので、画像が表示されるだけで白丸は表示されないはずです。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:44">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:44</a></span></div>
+            <div class="cbody">
+              これも見てみると…、こうですね。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:46">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:46</a></span></div>
+            <div class="cbody">
+              ちゃんとマーカーが画像に変わっているのがわかるかと思います。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                  <div class="caption-row" data-time="2:49">
+            <div class="cinfo"><span class="iconSound none"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#" class="cinfo-link">2:49</a></span></div>
+            <div class="cbody">
+              こういった list に関するスタイルもよく使いますので、慣れておくようにしましょう。            </div><!-- /.cbody -->
+          </div><!-- /.caption-row -->
+                <div id="caption_bottom_space" style="height: 135px;"></div>
+      </div><!-- /caption -->
+      <div id="caption_handle"><i class="icon-align-justify icon-gray"></i></div>
+
+      </div><!-- /caption_wrapper -->
+
+<script>
+(function() {
+    if (HMHM.cookie.get('display_caption') === null || HMHM.cookie.get('display_caption') == 1) {
+        $('#caption_wrapper').show();
+        $('#toggle_text_label').text('閉じる');
+    } else {
+        $('#caption_wrapper').hide();
+        $('#toggle_text_label').text('表示する');
+    }
+})();
+</script>
+
+</div><!-- movie section end -->
+
+<ul class="nav nav-tabs nav-tabs-orange">
+<li class="active"><a data-toggle="tab" href="http://dotinstall.com/lessons/basic_css_v3/31715#summary" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Tabs&#39;, &#39;Click&#39;, &#39;lesson/show/movie&#39;);">この動画について<span class="s10">&nbsp;</span></a></li>
+<li id="source_code_tab"><a data-toggle="tab" href="http://dotinstall.com/lessons/basic_css_v3/31715#source" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Tabs&#39;, &#39;Click&#39;, &#39;lesson/show/source&#39;);">ソースコード<span class="s10">&nbsp;</span></a></li>
+<li id="demo_tab"><a data-toggle="tab" href="http://dotinstall.com/lessons/basic_css_v3/31715#demo" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Tabs&#39;, &#39;Click&#39;, &#39;lesson/show/demo&#39;);">デモ<span class="s10">&nbsp;</span></a></li>
+<li><a data-toggle="tab" href="http://dotinstall.com/lessons/basic_css_v3/31715#notes" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Tabs&#39;, &#39;Click&#39;, &#39;lesson/show/notes&#39;);">更新情報 <span class="s10">(1)</span></a></li>
+</ul>
+
+<div class="tab-content" style="min-height:300px;">
+
+<div class="tab-pane active posr" id="summary">
+
+<p>このレッスンで解説されている処理の概要は以下のとおりです。</p>
+
+<ul id="lesson_summary" style="color:#666;font-size:13px;margin-bottom:25px;">
+    <li class="lh18">list-style-type</li>
+    <li class="lh18">list-style-image</li>
+    <li class="lh18">list-style-position</li>
+    <li class="lh18">list-style</li>
+</ul>
+
+
+<p class="txr mb15"><a href="http://dotinstall.com/contact?ru=/lessons/basic_css_v3/31715" rel="nofollow" class="caaa s11">このレッスンの問題を報告する</a></p>
+
+
+
+<div style="background:#fcf8f2;border-left:4px solid #f0ad4e;padding:10px 10px 5px 15px;">
+    <h3 style="font-size:12px;font-weight:bold;color:#f0ad4e;padding:0;margin:0 0 7px;">よくわからなかったら？</h3>
+    <p class="s12">レッスンの内容がよくわからなかった方は、学習のコツ、問題解決の仕方などをまとめた<a href="http://dotinstall.com/guide">『プログラミング学習ガイド』</a>も参考にしてみてください。</p>
+</div>
+
+
+</div><!-- /movie -->
+
+<div id="notes" class="tab-pane">
+
+<p>このレッスンの更新情報は以下のとおりです。</p>
+
+<ul>
+<li class="lh18">このレッスン (ID: 31715) は <a href="http://dotinstall.com/users/taguchi">百式管理人</a> によって作成されました。<span class="s10 caaa">(252日前)</span></li>
+</ul>
+
+</div><!-- note -->
+
+<div id="source" class="tab-pane">
+
+
+<p>今回紹介したプログラムのソースコードは以下のとおりです。</p>
+
+<div class="each_source_area">
+<div class="sourceBox">
+<div class="flr source_copy" style="margin:-3px 0 0;"><button class="btn btn-small">ソースコードを選択</button></div>
+<div class="flr" style="margin:-3px 3px 0 0;"><button class="btn btn-small  toggle_diff">今回の変更点</button></div>
+<span class="fwb" title="default.css">default.css</span>
+</div>
+<pre class="prettyprint s12 posr linenums sourcePre"><ol class="linenums"><li class="L0"><span class="com">/*</span></li><li class="L1"><span class="com">list</span></li><li class="L2"><span class="com">- list-style-type: disc/circle/square/decimal/lower-alpha</span></li><li class="L3"><span class="com">- list-style-image:</span></li><li class="L4"><span class="com">- list-style-position: inside/outside</span></li><li class="L5"><span class="com">- list-style:</span></li><li class="L6"><span class="com">*/</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">ul </span><span class="pun">{</span></li><li class="L9"><span class="pln">  </span><span class="com">/* list-style: inside decimal; */</span></li><li class="L0"><span class="pln">  </span><span class="com">/* list-style: outside lower-alpha; */</span></li><li class="L1"><span class="pln">  list</span><span class="pun">-</span><span class="pln">style</span><span class="pun">:</span><span class="pln"> url</span><span class="pun">(</span><span class="str">'smile.png'</span><span class="pun">)</span><span class="pln"> circle</span><span class="pun">;</span></li><li class="L2"><span class="pun">}</span></li></ol></pre>
+<textarea readonly="readonly" class="for_source_copy sourcePre" style="display:none;">/*
+list
+- list-style-type: disc/circle/square/decimal/lower-alpha
+- list-style-image:
+- list-style-position: inside/outside
+- list-style:
+*/
+
+ul {
+  /* list-style: inside decimal; */
+  /* list-style: outside lower-alpha; */
+  list-style: url('smile.png') circle;
+}
+</textarea>
+<pre class="prettyprint s12 linenums sourcePre" style="display:none;"><ol class="linenums"><li class="L0"><span class="pln"> </span><span class="com">/*</span></li><li class="L1"><span class="diff_removed"><span class="com">-text</span></span></li><li class="L2"><span class="diff_removed"><span class="com">-- color: orange;</span></span></li><li class="L3"><span class="diff_removed"><span class="com">-- font-size: 14px;</span></span></li><li class="L4"><span class="diff_removed"><span class="com">-- font-family: Arial, Helvetica;</span></span></li><li class="L5"><span class="diff_removed"><span class="com">-- font-weight: bold/normal</span></span></li><li class="L6"><span class="diff_removed"><span class="com">-- text-align: right/center/left;</span></span></li><li class="L7"><span class="diff_removed"><span class="com">-- text-decoration: underline/line-through/none</span></span></li><li class="L8"><span class="diff_added"><span class="com">+list</span></span></li><li class="L9"><span class="diff_added"><span class="com">+- list-style-type: disc/circle/square/decimal/lower-alpha</span></span></li><li class="L0"><span class="diff_added"><span class="com">+- list-style-image:</span></span></li><li class="L1"><span class="diff_added"><span class="com">+- list-style-position: inside/outside</span></span></li><li class="L2"><span class="diff_added"><span class="com">+- list-style:</span></span></li><li class="L3"><span class="com"> */</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="diff_removed"><span class="pun">-</span><span class="pln">p </span><span class="pun">{</span></span></li><li class="L6"><span class="diff_removed"><span class="pun">-</span><span class="pln">  color</span><span class="pun">:</span><span class="pln"> silver</span><span class="pun">;</span></span></li><li class="L7"><span class="diff_removed"><span class="pun">-</span><span class="pln">  font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">24px</span><span class="pun">;</span></span></li><li class="L8"><span class="diff_removed"><span class="pun">-</span><span class="pln">  font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Arial</span><span class="pun">;</span></span></li><li class="L9"><span class="diff_removed"><span class="pun">-</span><span class="pln">  font</span><span class="pun">-</span><span class="pln">weight</span><span class="pun">:</span><span class="pln"> bold</span><span class="pun">;</span></span></li><li class="L0"><span class="diff_removed"><span class="pun">-</span><span class="pln">  text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></span></li><li class="L1"><span class="diff_removed"><span class="pun">-</span><span class="pln">  text</span><span class="pun">-</span><span class="pln">decoration</span><span class="pun">:</span><span class="pln"> underline line</span><span class="pun">-</span><span class="pln">through</span><span class="pun">;</span></span></li><li class="L2"><span class="diff_added"><span class="pun">+</span><span class="pln">ul </span><span class="pun">{</span></span></li><li class="L3"><span class="diff_added"><span class="pun">+</span><span class="pln">  </span><span class="com">/* list-style: inside decimal; */</span></span></li><li class="L4"><span class="diff_added"><span class="pun">+</span><span class="pln">  </span><span class="com">/* list-style: outside lower-alpha; */</span></span></li><li class="L5"><span class="diff_added"><span class="pun">+</span><span class="pln">  list</span><span class="pun">-</span><span class="pln">style</span><span class="pun">:</span><span class="pln"> url</span><span class="pun">(</span><span class="str">'smile.png'</span><span class="pun">)</span><span class="pln"> circle</span><span class="pun">;</span></span></li><li class="L6"><span class="pln"> </span><span class="pun">}</span></li></ol></pre>
+</div><!-- /each_source_area -->
+<div class="each_source_area">
+<div class="sourceBox">
+<div class="flr source_copy" style="margin:-3px 0 0;"><button class="btn btn-small">ソースコードを選択</button></div>
+<div class="flr" style="margin:-3px 3px 0 0;"><button class="btn btn-small  toggle_diff">今回の変更点</button></div>
+<span class="fwb" title="index.html">index.html</span>
+</div>
+<pre class="prettyprint s12 posr linenums sourcePre"><ol class="linenums"><li class="L0"><span class="dec">&lt;!DOCTYPE html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"ja"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;title&gt;</span><span class="pln">CSS Practice</span><span class="tag">&lt;/title&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"default.css"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;ul&gt;</span></li><li class="L9"><span class="pln">          </span><span class="tag">&lt;li&gt;</span><span class="pln">Hello World Hello World Hello World Hello World Hello World Hello World Hello World </span><span class="tag">&lt;/li&gt;</span></li><li class="L0"><span class="pln">          </span><span class="tag">&lt;li&gt;</span><span class="pln">Hello World Hello World Hello World Hello World Hello World Hello World Hello World </span><span class="tag">&lt;/li&gt;</span></li><li class="L1"><span class="pln">          </span><span class="tag">&lt;li&gt;</span><span class="pln">Hello World Hello World Hello World Hello World Hello World Hello World Hello World </span><span class="tag">&lt;/li&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;/ul&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L4"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+<textarea readonly="readonly" class="for_source_copy sourcePre" style="display:none;">&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;CSS Practice&lt;/title&gt;
+    &lt;link rel="stylesheet" href="default.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;ul&gt;
+          &lt;li&gt;Hello World Hello World Hello World Hello World Hello World Hello World Hello World &lt;/li&gt;
+          &lt;li&gt;Hello World Hello World Hello World Hello World Hello World Hello World Hello World &lt;/li&gt;
+          &lt;li&gt;Hello World Hello World Hello World Hello World Hello World Hello World Hello World &lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<pre class="prettyprint s12 linenums sourcePre" style="display:none;"><ol class="linenums"><li class="L0"><span class="pln"> </span><span class="dec">&lt;!DOCTYPE html&gt;</span></li><li class="L1"><span class="pln"> </span><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"ja"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">   </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">     </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">     </span><span class="tag">&lt;title&gt;</span><span class="pln">CSS Practice</span><span class="tag">&lt;/title&gt;</span></li><li class="L5"><span class="pln">     </span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"default.css"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">   </span><span class="tag">&lt;/head&gt;</span></li><li class="L7"><span class="pln">   </span><span class="tag">&lt;body&gt;</span></li><li class="L8"><span class="diff_removed"><span class="pln">-      </span><span class="tag">&lt;p&gt;</span><span class="pln">Hello World</span><span class="tag">&lt;/p&gt;</span></span></li><li class="L9"><span class="diff_added"><span class="pln">+      </span><span class="tag">&lt;ul&gt;</span></span></li><li class="L0"><span class="diff_added"><span class="pln">+          </span><span class="tag">&lt;li&gt;</span><span class="pln">Hello World Hello World Hello World Hello World Hello World Hello World Hello World </span><span class="tag">&lt;/li&gt;</span></span></li><li class="L1"><span class="diff_added"><span class="pln">+          </span><span class="tag">&lt;li&gt;</span><span class="pln">Hello World Hello World Hello World Hello World Hello World Hello World Hello World </span><span class="tag">&lt;/li&gt;</span></span></li><li class="L2"><span class="diff_added"><span class="pln">+          </span><span class="tag">&lt;li&gt;</span><span class="pln">Hello World Hello World Hello World Hello World Hello World Hello World Hello World </span><span class="tag">&lt;/li&gt;</span></span></li><li class="L3"><span class="diff_added"><span class="pln">+      </span><span class="tag">&lt;/ul&gt;</span></span></li><li class="L4"><span class="pln">   </span><span class="tag">&lt;/body&gt;</span></li><li class="L5"><span class="pln"> </span><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div><!-- /each_source_area -->
+<p class="txr" style="margin-top:-10px;"><a href="http://dotinstall.com/contact?ru=/lessons/basic_css_v3/31715" rel="nofollow" class="caaa s11">このレッスンの問題を報告する</a></p>
+
+</div><!-- /source -->
+
+<div id="demo" class="tab-pane">
+
+
+
+<p>このプログラムのデモは別ウィンドウで開きます。</p>
+<p><a href="http://samples.dotinstall.com/basic_css_v3/31715/" class="btn lh24" id="go_to_demo_btn" target="_blank" rel="nofollow" style="font-size:12px;">このプログラムのデモを見る</a></p>
+
+</div><!-- /demo -->
+
+<div id="notes" class="tab-pane">
+<ul class="lessonNotes">
+<li>このレッスン (ID: 31715) は <a href="http://dotinstall.com/users/taguchi">百式管理人</a> によって作成されました。<span class="s10 caaa">(252日前)</span></li>
+</ul>
+</div><!-- /notes -->
+
+</div><!-- /tab-content -->
+
+</div><!-- /main -->
+
+<div class="span5" id="sidebar">
+
+
+
+<div class="sbox">
+<h2 class="text-ellipsis">
+CSS入門
+</h2>
+
+<div class="sboxInner">
+    <div class="clearfix">
+        <div style="float:left;width:90px;">
+            <div id="myStat" data-dimension="80" data-text="63%" data-width="12" data-percent="63" data-fgcolor="#5eb95e" class="circliful" style="width: 80px;"><span class="circle-text" style="line-height: 80px; font-size: 15px;">63%</span><canvas width="80" height="80"></canvas></div>
+        </div>
+        <div style="float:left;width:160px;" class="s12">
+                        <dl class="packageInfo">
+                <dt>完了レッスン数</dt><dd><span id="completed_lesson_count" class="s12b">14</span> / 22 回</dd>
+                <dt>完了率</dt><dd><strong><span id="complete_average">63</span></strong> %</dd>
+                <dt>あなたの閲覧数</dt><dd><strong><span id="complete_average">17</span></strong> 回</dd>
+                <dt>最終閲覧日</dt><dd><strong><span id="">-</span></strong> 日前</dd>
+            </dl>
+                    </div>
+    </div>
+</div><!-- /sboxInner -->
+
+<div class="s12b" style="background:#F9F9F9;border-top:1px solid #ddd;padding:5px 12px;">
+    自分用に学習メモをつける <span class="s10 linkLike blueLink" id="toggle_memo">[非表示]</span>
+</div>
+<div id="memo_form" class="clearfix" style="padding:12px;">
+    <textarea class="memoBox codeFont" id="memo" placeholder="このメモは他の人には公開されません。"></textarea>
+    <p><button id="memo_save_button" class="btn btn-small lh24" onclick="HMHM.memo.save(true);" style="line-height:12px">内容を保存する</button> <span class="sysMsg" id="memo_sysmessage" style="font-size: 10px; display: none;">保存しました</span></p>
+</div>
+
+<div class="s12b" style="background:#F9F9F9;border-top:1px solid #ddd;padding:5px 12px;">
+    動画一覧 <span class="s10">(全22回)</span>
+</div>
+
+<ul id="side_lessons">
+<li id="lesson_row_31701" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#01
+<a href="http://dotinstall.com/lessons/basic_css_v3/31701" class=" done lesson_title">CSSとはなにか？</a>
+</li>
+<li id="lesson_row_31702" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#02
+<a href="http://dotinstall.com/lessons/basic_css_v3/31702" class=" done lesson_title">はじめてのCSS</a>
+</li>
+<li id="lesson_row_31703" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#03
+<a href="http://dotinstall.com/lessons/basic_css_v3/31703" class=" done lesson_title">セレクタとプロパティを理解しよう</a>
+</li>
+<li id="lesson_row_31704" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#04
+<a href="http://dotinstall.com/lessons/basic_css_v3/31704" class=" done lesson_title">もっとセレクタを使ってみよう</a>
+</li>
+<li id="lesson_row_31705" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#05
+<a href="http://dotinstall.com/lessons/basic_css_v3/31705" class=" done lesson_title">属性セレクタを使ってみよう</a>
+</li>
+<li id="lesson_row_31706" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#06
+<a href="http://dotinstall.com/lessons/basic_css_v3/31706" class=" done lesson_title">擬似クラスを使ってみよう</a>
+</li>
+<li id="lesson_row_31707" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#07
+<a href="http://dotinstall.com/lessons/basic_css_v3/31707" class=" done lesson_title">擬似要素を使ってみよう</a>
+</li>
+<li id="lesson_row_31708" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#08
+<a href="http://dotinstall.com/lessons/basic_css_v3/31708" class=" done lesson_title">セレクタの詳細度を理解しよう</a>
+</li>
+<li id="lesson_row_31709" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#09
+<a href="http://dotinstall.com/lessons/basic_css_v3/31709" class=" done lesson_title">プロパティの値を指定しよう</a>
+</li>
+<li id="lesson_row_31710" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#10
+<a href="http://dotinstall.com/lessons/basic_css_v3/31710" class=" done lesson_title">ボックスモデルを理解しよう</a>
+</li>
+<li id="lesson_row_31711" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#11
+<a href="http://dotinstall.com/lessons/basic_css_v3/31711" class=" done lesson_title">borderで境界線のスタイルを変えよう</a>
+</li>
+<li id="lesson_row_31712" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#12
+<a href="http://dotinstall.com/lessons/basic_css_v3/31712" class=" done lesson_title">paddingで余白を制御しよう</a>
+</li>
+<li id="lesson_row_31713" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#13
+<a href="http://dotinstall.com/lessons/basic_css_v3/31713" class=" done lesson_title">marginとmarginの相殺を理解しよう</a>
+</li>
+<li id="lesson_row_31714" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#14
+<a href="http://dotinstall.com/lessons/basic_css_v3/31714" class=" done lesson_title">文字に関するプロパティを使ってみよう</a>
+</li>
+<li id="lesson_row_31715" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#15
+<a href="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール.html" class="current  lesson_title">list-styleでリストのスタイルを変えよう</a>
+</li>
+<li id="lesson_row_31716" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#16
+<a href="http://dotinstall.com/lessons/basic_css_v3/31716" class="  lesson_title">cursorでカーソルの形状を変えよう</a>
+</li>
+<li id="lesson_row_31717" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#17
+<a href="http://dotinstall.com/lessons/basic_css_v3/31717" class="  lesson_title">backgroundで背景スタイルを変えよう</a>
+</li>
+<li id="lesson_row_31718" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#18
+<a href="http://dotinstall.com/lessons/basic_css_v3/31718" class="  lesson_title">displayで要素の配置方法を変えよう</a>
+</li>
+<li id="lesson_row_31719" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#19
+<a href="http://dotinstall.com/lessons/basic_css_v3/31719" class="  lesson_title">positionで位置を調整してみよう</a>
+</li>
+<li id="lesson_row_31720" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#20
+<a href="http://dotinstall.com/lessons/basic_css_v3/31720" class="  lesson_title">z-index､overflowを理解しよう</a>
+</li>
+<li id="lesson_row_31721" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#21
+<a href="http://dotinstall.com/lessons/basic_css_v3/31721" class="  lesson_title">line-height､vertical-alignを理解しよう</a>
+</li>
+<li id="lesson_row_31722" class="text-ellipsis">
+<i class="fa fa-fw fa-play-circle"></i>
+#22
+<a href="http://dotinstall.com/lessons/basic_css_v3/31722" class="  lesson_title">float､clearを使ってみよう</a>
+</li>
+</ul>
+
+</div><!-- /sbox -->
+
+<div class="sbox">
+<h2>関連のあるキーワード <span class="s10">(4)</span></h2>
+<div class="sboxInner">
+<span class="tags"><a href="http://dotinstall.com/lessons/search#!/filter/%E5%9F%BA%E7%A4%8E%E8%AC%9B%E5%BA%A7">基礎講座 <span class="s10">(146)</span></a></span>
+<span class="tags"><a href="http://dotinstall.com/lessons/search#!/filter/%E5%88%9D%E5%BF%83%E8%80%85%E5%90%91%E3%81%91">初心者向け <span class="s10">(167)</span></a></span>
+<span class="tags"><a href="http://dotinstall.com/lessons/search#!/filter/CSS">CSS <span class="s10">(24)</span></a></span>
+<span class="tags"><a href="http://dotinstall.com/lessons/search#!/filter/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C">ウェブサイト制作 <span class="s10">(5)</span></a></span>
+</div>
+</div>
+
+<div class="sbox">
+<h2>動画中で使用されている技術</h2>
+<div class="sboxInner">
+<span class="tech_tags">CSS 2.1</span>
+</div>
+</div>
+
+<div class="sbox">
+<h2>このレッスンを共有する</h2>
+<div class="sboxInner">
+<ul class="unstyled" id="shareButtons">
+<li><iframe class="hatena-bookmark-button-frame" title="このエントリーをはてなブックマークに追加" frameborder="0" scrolling="no" width="50" height="20" src="javascript:false" style="width: 50px; height: 20px;"></iframe></li>
+<li><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/tweet_button.781f4f0ed6951ea86890554cec78adec.en.html" style="position: static; visibility: visible; width: 62px; height: 20px;"></iframe></li>
+<li><div class="fb-like fb_iframe_widget" data-href="http://dotinstall.com/lessons/basic_css_v3/31715" data-send="false" data-layout="button_count" data-width="160" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=128241633952367&amp;container_width=254&amp;href=http%3A%2F%2Fdotinstall.com%2Flessons%2Fbasic_css_v3%2F31715&amp;layout=button_count&amp;locale=ja_JP&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=160"><span style="vertical-align: bottom; width: 98px; height: 20px;"><iframe name="f1c45574a4" width="160px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/like.html" style="border: none; visibility: visible; width: 98px; height: 20px;" class=""></iframe></span></div></li>
+</ul>
+</div>
+</div>
+
+</div><!-- /sidebar -->
+
+</div><!-- /row -->
+</div><!-- /container -->
+
+<input type="hidden" id="lesson_id" value="31715">
+<input type="hidden" id="user_id" value="52495">
+<input type="hidden" id="user_name" value="masanarihori">
+<input type="hidden" id="profile_image_url" value="http://pbs.twimg.com/profile_images/557792281575444480/iqUnekhX_normal.jpeg">
+<input type="hidden" id="open_lesson_history" value="1">
+<input type="hidden" class="one_time_token" name="one_time_token" value="c2474ae107c6ce9cf7e1cc772dd4243c">
+
+<p id="back-top" style="display:none;"><a href="http://dotinstall.com/lessons/basic_css_v3/31715#top"><span></span></a></p>
+
+
+<div id="footer">
+<div class="container">
+<div class="row">
+<div class="span4">
+<div class="txc">
+<img src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/footer_logo.png" width="190" height="190" alt=".install">
+</div>
+</div><!-- /span4 -->
+<div class="span4">
+<h3>「ドットインストール」とは？</h3>
+<div style="padding:0 10px 0 20px">
+<p class="s12">3分動画でマスターできる、初心者向けプログラミング学習サイトです。</p>
+<p class="s12">あなたもプログラミングを始めてみませんか？</p>
+</div>
+</div><!-- /span4 -->
+<div class="span4">
+<h3>サービスメニュー</h3>
+<ul>
+<li><a href="http://dotinstall.com/lessons">レッスン一覧</a></li>
+<li><a href="http://dotinstall.com/premium">プレミアム会員</a></li>
+<li><a href="http://dotinstall.com/business">法人向けライセンス</a></li>
+<li><a href="http://dotinstall.com/news">運営からのお知らせ</a></li>
+<li><a href="http://dotinstall.com/guide">プログラミング学習ガイド</a></li>
+<li><a href="http://dotinstall.com/help">ヘルプ</a></li>
+</ul>
+<h3>ご利用にあたって</h3>
+<ul>
+<li><a href="http://dotinstall.com/about">このサイトについて</a></li>
+<li><a href="http://dotinstall.com/terms">利用規約</a></li>
+<li><a href="http://dotinstall.com/privacy">プライバシーポリシー</a></li>
+<li><a href="http://company.dotinstall.com/" target="_blank">運営企業情報</a></li>
+<li><a href="http://company.dotinstall.com/news/20150702.html" target="_blank">動画広告について</a></li>
+<li><a href="http://dotinstall.com/contact">お問い合わせ</a></li>
+</ul>
+</div><!-- /span4 -->
+<div class="span4">
+<h3>ソーシャルメディア</h3>
+<ul>
+<li><a href="http://facebook.com/dotinstall">Facebookページ</a></li>
+<li><a href="http://twitter.com/dotinstall">Twitter (@dotinstall)</a></li>
+<li><a href="http://blog.dotinstall.com/">公式ブログ</a></li>
+</ul>
+<h3>更新情報</h3>
+<ul class="rss">
+<li><a href="http://dotinstall.com/lessons.rss">新着レッスンRSS</a></li>
+<li><a href="http://dotinstall.com/lessons/knowledge.rss">新着補足情報RSS</a></li>
+</ul>
+</div><!-- /span4 -->
+</div><!-- /row -->
+
+<p class="copyright">
+    Copyright © 2011-2015 dotinstall.com. All Rights Reserved.
+</p>
+
+
+</div><!-- /container -->
+</div><!-- /footer -->
+
+<script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/packages_for_search.js"></script>
+
+            <script id="videojs_onready_script">
+(function(vjs) {
+    var HIGH_RES = 720;
+
+    var defaultResolution = HMHM.movie.videojs.getDefaultPlaybackQuality(HIGH_RES)
+      , defaultVoice      = HMHM.movie.videojs.getDefaultVoice('m')
+      , defaultSpeed      = HMHM.movie.videojs.getCurrentPlaybackSpeed(1.0)
+      , defaultVolume     = HMHM.movie.videojs.getDefaultVolume(0.9)
+      , videoNum          = { "video/mp4": 0, "video/webm": 0 }
+      , forceMimeTypes    = ['video/mp4', 'video/webm'];
+
+    // count video source type
+    $('video').find('source').each(function() {
+        videoNum[$(this).attr('type')]++;
+    });
+
+    // if mp4 only, firefox and opera need flash plugin
+    if (videoNum['video/mp4'] > 0 && videoNum['video/webm'] === 0) {
+        if (HMHM.navigator.isIE8 || HMHM.navigator.isOpera) {
+            if (!HMHM.navigator.isAvailableFlash()) {
+                $('#flash_warning').show();
+                return false;
+            }
+        }
+    }
+
+    vjs('videojs_player', {
+        plugins: {
+            Speed: {
+                available_speeds: [2, 1.8, 1.6, 1.4, 1.2, 1, 0.9, 0.8, 0.7],
+                default_speed: defaultSpeed
+            }
+            , VoiceSelector: {
+                default_voice: defaultVoice
+            }
+            , ResolutionSelector: {
+                force_types: forceMimeTypes,
+                default_res: defaultResolution
+            }
+            , Card: {
+                //comment_count: $('#comment_count').data('comment-count')
+            }
+        }
+    }).ready(function() {
+        $(this.el()).css('opacity', 1);
+        $(this.el().firstChild).css('opacity', 1);
+
+        this.on(['tap'], function(e) {
+            if (e.target.id === 'videojs_player_html5_api') {
+                if (this.paused()) {
+                    this.play();
+                } else {
+                    this.pause();
+                }
+
+                if (this.VoiceSelector) {
+                    this.VoiceSelector.hideMenu();
+                }
+            }
+        });
+
+        // hide liveDisplay
+        this.controlBar.liveDisplay.hide();
+
+        // set volume
+        this.volume(defaultVolume);
+
+        this.on('play', function() {
+            HMHM.movie.videojs.on.play();
+            if (this.Speed) {
+                this.Speed.change(HMHM.movie.videojs.getCurrentPlaybackSpeed(1.0));
+            }
+        });
+
+        this.on('pause', function() {
+            HMHM.movie.videojs.on.pause();
+        });
+
+        this.on('timeupdate', function() {
+            HMHM.movie.videojs.on.timeupdate();
+        });
+
+        this.on('changeRes', function() {
+            HMHM.movie.videojs.on.changeResolution(this.getCurrentRes());
+        });
+
+        this.on('changeVoice', function() {
+            HMHM.movie.videojs.on.changeVoice(this.getCurrentVoice());
+        });
+
+        this.on('change_playback_speed', function() {
+            HMHM.movie.videojs.on.changePlaybackSpeed(this.playbackRate());
+        });
+
+        this.on('volumechange', function() {
+            HMHM.movie.videojs.on.volumeChange(this.volume());
+        });
+
+        this.on('fullscreenchange', function() {
+            if ($(this.el()).hasClass('vjs-my-fullscreen')) {
+                this.removeClass('vjs-my-fullscreen');
+            } else {
+                this.addClass('vjs-my-fullscreen');
+            }
+        });
+
+        this.on('error', function(e) {
+            HMHM.movie.videojs.on.error(this.error(), this.currentSrc());
+        });
+
+        // if #videojs_player element is clicked, move focus to play button
+        $('#videojs_player, .vjs-big-play-button').on('click', function(e) {
+            $('.vjs-play-control.vjs-control').focus();
+        });
+
+        // prevent scroll pressed space key if playing button is active.
+        $(document).keydown(function(e) {
+            if (/( |^)vjs-(playing|paused)( |$)/.test(document.activeElement.className)
+                && e.which === 32)
+            {
+                return false;
+            }
+        });
+
+        HMHM.movie.videojs.playerReady = true;
+        HMHM.movie.videojs.player_ = this;
+        HMHM.movie.ytplayer = HMHM.movie.videojs.player;
+
+            });
+})(window.videojs);
+</script>
+      
+<!-- User Insight PCDF Code Start : dotinstall.com -->
+<script type="text/javascript">
+<!--
+var _uic = _uic ||{}; var _uih = _uih ||{};_uih['id'] = 50397;
+_uih['lg_id'] = '3fd1fc0875fbafc61096eb2ea14fd985624b7934';
+_uih['fb_id'] = '';
+_uih['tw_id'] = '';
+_uih['uigr_1'] = ''; _uih['uigr_2'] = ''; _uih['uigr_3'] = ''; _uih['uigr_4'] = ''; _uih['uigr_5'] = '';
+_uih['uigr_6'] = ''; _uih['uigr_7'] = ''; _uih['uigr_8'] = ''; _uih['uigr_9'] = ''; _uih['uigr_10'] = '';
+/* DO NOT ALTER BELOW THIS LINE */
+/* WITH FIRST PARTY COOKIE */
+(function() {
+var bi = document.createElement('scri'+'pt');bi.type = 'text/javascript'; bi.async = true;
+bi.src = ('https:' == document.location.protocol ? 'https://bs' : 'http://c') + '.nakanohito.jp/b3/bi.js';
+var s = document.getElementsByTagName('scri'+'pt')[0];s.parentNode.insertBefore(bi, s);
+})();
+//-->
+</script>
+<!-- User Insight PCDF Code End : dotinstall.com -->
+
+<script>
+
+$(function() {
+    if ($('#myStat').circliful) {
+        $('#myStat').circliful();
+    }
+
+    if ($('#user_id').val() != '') {
+        HMHM.movie.isLogin = true;
+        // lesson history
+        $.ajax({
+            url:'/lesson/create_history',
+            type:'POST',
+            data:{
+                user_id:$('#user_id').val(),
+                lesson_id:$('#lesson_id').val(),
+                one_time_token:$('input[name="one_time_token"]:first').val()
+            },
+            timeout:15000,
+            success:function(json) {}
+        });
+    }
+});
+
+
+$(function() {
+    HMHM.wait(3000).done(function() {
+      frameInFrame('/js/async.js?v=20150502');
+    });
+});
+
+
+HMHM.repeat(100, HMHM.movie.monitorCurrentTime);
+</script>
+<iframe src="javascript:false" style="width: 0px; height: 0px; border: 0px;"></iframe><script src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/caption.js"></script>
+
+
+
+
+<img width="1" height="1" src="./#15 list-styleでリストのスタイルを変えよう _ CSS入門 - プログラミングならドットインストール_files/saved_resource" style="display: none;"></body></html>
