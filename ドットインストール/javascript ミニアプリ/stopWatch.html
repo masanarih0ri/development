@@ -1,0 +1,106 @@
+<html lang="ja">
+	<head>
+		<meta chraset="utf-8">
+		<title>StopWatch</title>
+		<style>
+			body{
+				background-color: #e0e0e0;
+				font-family: Arial,sans-serif;
+				text-align: center;
+			}
+
+			#timerText{
+				color: #00aaff;
+				font-size: 128px;
+				margin: 40px auto;
+				text-shadow:0 1px 0 rgba(255,255,255,0.5);
+			}
+			.btn{
+				display: inline-block;
+				padding: 7px;
+				width: 100px;
+				border-radius: 5px;
+				box-shadow:0 4px 0 #0088cc;
+				background-color: #00aaff; 
+				cursor: pointer;
+				color: #fff
+			}
+
+			.btn + .btn{
+				margin-left: 10px;
+			}
+			.btn.active{
+				opacity: 1.0;
+			}
+
+			.btn.inactive{
+				opacity: 0.5;
+			}
+
+
+		</style>
+		
+	</head>
+
+	<body>
+
+	<div id="timerText">0.00</div>
+	<div id="start">START</div>
+	<div id="stop">STOP</div>
+	<div id="reset">RESET</div>
+	
+	<script>
+	(function(){
+		"use strict";
+		var startTime;
+		var timerId;
+		var elapsedTime = 0;
+		var isRunning = false;//タイマーの状態を保持する変数
+
+		var startButton = document.getElementById("start");
+		var stopButton = document.getElementById("stop");
+		var resetButton = document.getElementById("reset");
+		var timerText = document.getElementById("timerText");
+
+		function setButtonState(start,stop,reset){
+			startButton.className = start ? 'btn active' : 'btn inactive';//startbuttonがtrueだったら、btn activeクラスをつける。そうでない場合にはbtn inactiveクラスをつける。
+			stopButton.className = stop ? 'btn active' : 'btn inactive';
+			resetButton.className = reset ? 'btn active' : 'btn inactive';
+		}
+
+		setButtonState(true,false,false);
+
+		startButton.addEventListener("click",function(){
+			if(isRunning)return;
+			isRunning = true;
+			startTime = Date.now();//1970/1/1 00:00:00〜の秒数
+			updateTimertext();//この関数を走らせる
+			setButtonState(false,true,false);
+		});
+		stopButton.addEventListener("click",function(){
+			if(!isRunning)return;
+			isRunning = false;
+			elapsedTime += Date.now() - startTime;
+			clearTimeout(timerId);
+			setButtonState(true,false,true);
+		});
+		resetButton.addEventListener("click",function(){
+			if(isRunning)return;
+			timerText.innerHTML = "0.00";
+			elapsedTime = 0;
+			setButtonState(true,false,false);
+		});
+
+		function updateTimertext(){
+			timerId = setTimeout(function(){
+				var t = Date.now() - startTime + elapsedTime;
+				timerText.innerHTML = (t / 1000).toFixed(2);
+				updateTimertext();
+			},10);
+		}
+	})();//即時関数で囲うことで、他のプログラムに影響を与えないようにする
+
+	</script>
+	</body>
+</html>
+

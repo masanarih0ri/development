@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta chraset="utf-8">
+		<title>MemoryGame</title>
+		<style>
+			body{
+				margin: 0;
+				background-color: #00d4f0;
+				font-family: Arial,sans-serif;
+				text-align: center;
+				color: #fff;
+			}
+			#stage{
+				margin: 80px auto 30px;
+				width: 600px;
+			}
+			.card-container{
+				margin: 0 10px 20px 0;
+				cursor: pointer;
+				display: inline-block;
+				width: 50px;
+				height: 60px;
+				font-size: 24px;
+				font-weight: bold;
+				line-height: 60px;
+				position: relative;
+				perspective: 100px;
+			}
+			
+			.card{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				transform-style: preserve-3d;
+				transition: transform .8s;
+			}
+			.card.open{
+				transform: rotateY(180deg);
+			}
+			.card-back, .card-front{
+				display: block;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				position: absolute;
+				backface-visibility: hidden;
+			
+			}
+			.card-back{
+				background-color: #03a9f4;
+			}
+
+			.card-front{
+				background-color: #fff;
+				color: #333;
+				transform: rotateY(180deg);
+			}
+
+			#btn {
+				margin: 0 auto;
+				width: 200px;
+				padding: 10px;
+				background-color: #00aaff;
+				border-radius: 5px;
+				cursor: pointer;
+				opacity: 0;
+				transition: opacity 0.5s;
+			}
+
+			#btn.visible{
+				opacity: 1;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+
+		<div id="stage">
+			
+		</div>
+
+		<div id="btn">Next Stage?</div>
+	<script>
+		(function(){
+			"use strict";
+			var cards = [],
+				level = 2,
+				flipCount = 0,
+				correctCount = 0,
+				firstCard = null,
+				secondCard = null,
+				btn,
+				stage;
+
+			btn = document.getElementById("btn");
+			stage = document.getElementById("stage");
+
+
+			init();
+
+			function init(){
+
+				correctCount = 0;
+				btn.className = "";
+
+				while(stage.firstChild) stage.removeChild(stage.firstChild);
+				for (var i = 1; i <= level; i++){
+					cards[cards.length] = createCard(i);
+					cards[cards.length] = createCard(i);
+				}
+
+				while (cards.length){
+					var pos = Math.floor(Math.random() * cards.length);
+					stage.appendChild(cards.splice(pos, 1)[0]);
+				}
+
+			}
+
+			function createCard(num){
+				var inner,
+					card,
+					container;
+				inner = '<div class="card-back">?</div><div class="card-front">*</div>';
+				card = document.createElement("div");
+				card.className = "card";
+				card.innerHTML = inner.replace("*",num);
+				card.addEventListener("click", function(){
+					flipCard(this);
+				});
+
+				container = document.createElement("div");
+				container.className = "card-container";
+
+				container.appendChild(card);
+
+				return container;
+			}
+
+			function flipCard(card){
+
+				if (firstCard !== null && secondCard !== null){
+					return;
+				}
+
+				if (card.className.indexOf("open") === -1){
+					card.className = "card open";
+				}else{
+					return;
+				}
+				flipCount++;
+				if (flipCount % 2 === 1){
+					firstCard = card;
+				} else {
+					secondCard = card;
+					setTimeout(function(){
+						judge();
+					}, 900);
+				}
+			}
+
+			function judge(){
+				if (firstCard.children[1].textContent === secondCard.children[1].textContent){
+					correctCount++;
+					if (correctCount === level){
+						btn.className = "visible";
+					}
+					//console.log(correctCount);
+				} else {
+					firstCard.className = "card";
+					secondCard.className = "card";
+				}
+
+				firstCard = null;
+				secondCard = null;
+			}
+			btn.addEventListener("click", function(){
+				level++;
+				init();
+			});
+
+		})();
+	</script>	
+	</body>
+</html>
+

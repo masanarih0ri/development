@@ -1,0 +1,30 @@
+@charset:"utf-8";
+
+body{
+	margin: 0;
+	font-family: Arial,sans-serif;
+	font-size: 18px;
+}
+
+#container{
+	text-align: center;
+	margin: 10px auto;
+}
+
+#mycanvas{
+	background: #000000;
+	/*#AAEDFF*/
+}
+
+#btn{
+	margin: 3px auto;
+	width: 200px;
+	padding: 5px;
+	background: #00AAFF;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+#btn:hover{
+	opacity: 0.7;
+}

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>王様ゲーム</title>
+
+  
+</head>
+<body>
+  <h1>王様ゲーム</h1>
+  <p>人数: <input type="text" id="num"></p>
+  <p><input type="button" value="王様曰く！" onclick="kingSaid();"></p>
+  <p id="result"></p>
+
+  <script>
+    function kingSaid(){
+        var orders = ['デコピンしなさい','クイズを出しなさい', 'ほめちぎりなさい', 'ドリンクを注ぎなさい'];
+
+        var order = orders[Math.floor(Math.random() * orders.length)];   
+        //console.log(order); 
+
+        var num = document.getElementById('num').value;
+        //4→ 1,2,3,4
+        //0,1,2,3　+ 1
+
+        var p1 = Math.floor(Math.random() * (num)) + 1;
+        var p2 = Math.floor(Math.random() * (num)) + 1;
+        //console.log(p1);
+
+        if (num < 2){
+          p2 = 1;
+        } else {
+              do {
+            p2 = Math.floor(Math.random() * (num)) + 1;
+          }while(p1 == p2);
+        }
+        
+        // console.log(p1);
+        // console.log(p2);
+
+        document.getElementById('result').innerHTML = '#' + p1 + 'の人が、#' + p2 + 'の人に' + order;
+    }
+  </script>
+</body>
+</html>
