@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>sample closure</title>
+</head>
+<body>
+	<script>
+	function createCounter(){
+		var count = 0;
+		return function(){
+			count++;
+			console.log(count);
+		}
+	}
+
+	var counter1 = createCounter();
+	counter1();
+	counter1();
+	counter1();
+
+	var counter2 = createCounter();
+	counter2();
+	counter2();
+
+	count = 1000;
+
+	counter1();
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>sample observer_multiple</title>
+</head>
+<body>
+<script>
+	//this.listenersは配列でなく、オブジェクトとして生成
+	function Observer(){
+		this.listeners = {};
+	}
+
+	//listenersに引数のeventがあるかどうかを確認し、なければ空の配列を生成する。
+	//あった場合にはその関数を配列に追加をする。
+	Observer.prototype.on = function(event,func){
+		if(!this.listeners[event]){
+			this.listeners[event] = [];
+		}
+		//this.listeners[event]があれば、関数を配列に追加
+		this.listeners[event].push(func);
+	};
+
+	Observer.prototype.off = function(event,func){
+		//refには関数が入る。
+		//lenには配列に入っている関数の個数が入る
+		var ref = this.listeners[event];
+		var len = ref.length;
+		for(var i = 0; i < len; i++){
+			var listener = ref[i];
+			if(listener === func){
+				ref.splice(i,1);
+			}
+		}
+	};
+
+	//下記のobserver.trigger("イベント名");でこの部分を動かす
+	Observer.prototype.trigger = function(event){
+		//refには配列が入る。
+		var ref = this.listeners[event];
+		for(var i = 0; i < ref.length; i++){
+			//ref[i]には関数が入る
+			var listener = ref[i];
+			//listenerがfunctionであればlistener()関数を走らせてメッセージを表示。
+			if(typeof listener === "function"){
+				listener();
+			}
+		}
+	};
+
+	var observer = new Observer();
+	var greet = function(){
+		console.log('good morning!!!');
+	};
+	observer.on("morning",greet);
+	observer.trigger("morning");
+
+	var sayEvening = function(){
+		console.log('good evening!!!');
+	};
+
+	observer.on("evening",sayEvening);
+	observer.trigger("evening");
+
+	var goodnight = function(){
+		console.log('good night!!!');
+	};
+	observer.on("night",goodnight);
+	observer.trigger("night");
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>sample observer</title>
+</head>
+<body>
+	<script>
+		function Observer(){
+			this.listeners = [];
+		}
+
+		Observer.prototype.on = function(func){
+			this.listeners.push(func);
+		};
+
+		Observer.prototype.off = function(func){
+			var len = this.listeners.length;
+			for(var i = 0; i < len; i++){
+				var listener = this.listeners[i];
+				if(listener === func){
+					this.listeners.splice(i,1);
+				}
+			}
+		};
+
+		Observer.prototype.trigger = function(event){
+			var len = this.listeners.length;
+			for(var i = 0; i < len; i++){
+				var listener = this.listeners[i];
+				listener();
+			}
+		};
+
+		var observer = new Observer();
+		var greet = function(){
+			console.log('good morning!!');
+		};
+
+		observer.on(greet);
+		observer.trigger();//good morning
+
+		var night = function(){
+			console.log('good night!!');
+		};
+
+		observer.on(night);
+		observer.trigger();//good morning / good night
+
+		var evening = function(){
+			console.log('good evening!!');
+		};
+
+		observer.on(evening);
+		observer.trigger();//good morning / good night / good evening
+	</script>
+</body>
+</html>
