@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<title>jQueryのテーブルソート</title>
+	
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th class="dothesort" data-type="string">名前<span></span></th>
+				<th class="dothesort" data-type="integer">点数<span></span></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>hori</td>
+				<td>32</td>
+			</tr>
+			<tr>
+				<td>asai</td>
+				<td>45</td>
+			</tr>
+			<tr>
+				<td>ono</td>
+				<td>49</td>
+			</tr>
+			<tr>
+				<td>hikaru</td>
+				<td>66</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		 //並べ替え順を設定
+		 var sortOrder = 1;//昇順:1,降順:-1
+		 //列をクリックしたら
+		 $('.dothesort').click(function(){
+		 	var type = $(this).data('type');//string,integer
+		 	var col = $(this).index();
+		 	//行全体を取得
+		 	var $rows = $('tbody>tr');
+		 	//行を並べ替え（点数で）
+		 	$rows.sort(function(a, b) {
+		 		return compare(a, b, type, col) * sortOrder;
+			});
+		 	//tbodyを並び替えされた行全体で入れ替え
+		 	$('tbody').empty().append($rows);
+		 	var arrow = sortOrder === 1 ? "▲" :"▼";
+		 	$('.dothesort > span').text('');
+		 	$(this).find('span').text(arrow);
+		 	//並べ替え順を反転
+		 	sortOrder *= -1;
+
+		 });
+		 function compare(a, b, type, col){
+		 	var _a = $(a).find('td').eq(col).text();
+		 	var _b = $(b).find('td').eq(col).text();
+
+		 	if (type == "string"){
+		 		if (_a < _b){
+		 			return -1;
+		 		}
+		 		if (_a > _b){
+		 			return 1;
+		 		}
+		 		return 0;
+
+		 	} else {
+		 		_a *= 1;
+		 		_b *= 1;
+		 		return _a - _b;
+		 	}
+		 }
+	});
+	</script>
+
+</body>
+
+</html>
