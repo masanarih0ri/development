@@ -5,7 +5,7 @@
 $id = $_GET['id'];
 //DBへ接続
 try{
-	$pdo = new PDO('mysql:dbname=moneylocation_gsacademy;host=mysql528.db.sakura.ne.jp','moneylocation','masa0209');
+	$pdo = new PDO('mysql:dbname=sample;host=sample.db.sakura.ne.jp','moneylocation','password');
 }
 catch (PDOException $e) {
   	exit('データベースに接続できませんでした。'.$e->getMessage());

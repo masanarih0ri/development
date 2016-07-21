@@ -4,7 +4,7 @@ $latdata = $_POST['latdata'];
 $lngdata = $_POST['lngdata']; 
 
 //DBへ接続
-$pdo = new PDO('mysql:dbname=moneylocation_gsacademy;host=mysql528.db.sakura.ne.jp','moneylocation','masa0209');
+$pdo = new PDO('mysql:dbname=sample;host=sample.db.sakura.ne.jp','moneylocation','password');
 //文字コードを指定
 $stmt = $pdo->query('SET NAMES utf8');
 //データ登録SQL作成

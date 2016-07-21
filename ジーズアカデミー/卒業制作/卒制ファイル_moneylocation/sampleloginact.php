@@ -8,7 +8,7 @@ $lpw = $_POST['lpw'];
 
 //1. 接続します
 try {
-  $pdo = new PDO('mysql:dbname=moneylocation_userdata;host=mysql528.db.sakura.ne.jp','moneylocation','masa0209');
+  $pdo = new PDO('mysql:dbname=sample;host=sample.db.sakura.ne.jp','moneylocation','password');
 } catch (PDOException $e) {
   exit('DbConnectError:'.$e->getMessage());
 }
