@@ -1,0 +1,328 @@
+@charset "utf-8";
+
+body{
+	line-height: 1.5;
+}
+header{
+   overflow: hidden;
+   background-color: #54b4dc;
+}
+.logo{
+	background-color: #54b4dc;
+	height: 40px;
+	float: left;
+	display:table;
+	text-align: center;
+	color: #fff;
+}
+.logo > *{
+	display:table-cell;
+    vertical-align: middle;
+}
+#menubtn{
+    display: none;
+}
+.menubtn{
+    background-color: #54b4dc;
+    height: 40px;
+    float: right;
+    display:table;
+    text-align: center;
+    color: #fff;
+}
+.menubtn > *{
+    display:table-cell;
+    vertical-align: middle;
+}
+
+
+.menubtn li a{
+	text-decoration: none;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+.register{
+    clear: both;
+    background-color: #0068a7;
+    text-align: center;
+}
+
+.register h3{
+	color: #fff;
+	letter-spacing: 2px;
+
+}
+
+.register input{
+	text-align: center;
+	background-color: #0068a7;
+	color: #fff;
+}
+
+#username{
+	border: none;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+}
+#password{
+	border: none;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+}
+#register{
+	border: none;
+	color: #fff;
+	background-color: #0494cc;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: all .5s;
+}
+
+#register:hover{
+	background-color: #fff;
+	color: #0068a7;
+	font-weight: bold;
+}
+
+footer{
+	text-align: center;
+	background-color: #54b4dc;
+	color: #fff;
+}
+/*-320px*/
+
+@media screen and (max-width: 320px){
+	header{
+		padding: 16px 0;
+	}
+	#menubtn{
+		display: block;
+		border-radius: 2px;
+		padding: 4px 12px;
+		text-align: center;
+		border: 1px solid #fff;
+	}
+	
+	.menubtn{
+		overflow: hidden;
+		margin-right: 16px;
+	}
+
+	.menulist{
+		display: none;
+	}
+	
+	.menulist li{
+		transition:all .5s;
+		padding: 6px 8px;
+		border-radius: 2px;
+		font-size: 16px;
+		border-bottom: 1px solid #fff;
+		border-right: 1px solid #fff;
+		border-left: 1px solid #fff;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+	.register{
+		padding-bottom: 48px;
+	}
+
+	.register h3{
+		padding-top: 48px;
+		margin-bottom: 48px;
+		font-size: 16px;
+	}
+
+	.register input{
+		margin-bottom: 48px;
+		font-size: 18px;
+		padding: 12px 0;
+	}
+	.register button{
+		font-size: 16px;
+	}
+	#register{
+		padding: 16px 32px;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+}
+
+
+/*320px-640px*/
+@media screen and (min-width: 320px) and (max-width: 640px){
+	header{
+		padding: 16px 0;
+	}
+	#menubtn{
+		display: block;
+		border-radius: 2px;
+		padding: 8px 24px;
+		text-align: center;
+		border: 1px solid #fff;
+	}
+	
+	.menubtn{
+		overflow: hidden;
+		margin-right: 16px;
+	}
+
+	.menulist{
+		display: none;
+	}
+	
+	.menulist li{
+		transition:all .5s;
+		padding: 6px 8px;
+		border-radius: 2px;
+		font-size: 16px;
+		border: 1px solid #fff;
+
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+	.register{
+		padding-bottom: 48px;
+	}
+
+	.register h3{
+		padding-top: 48px;
+		margin-bottom: 48px;
+		font-size: 16px;
+	}
+
+	.register input{
+		margin-bottom: 48px;
+		font-size: 18px;
+		padding: 12px 0;
+	}
+	.register button{
+		font-size: 16px;
+	}
+	#register{
+		padding: 16px 32px;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+}
+
+/*640-768px*/
+
+@media screen and (min-width: 640px) and (max-width: 768px){
+
+	header{
+		padding: 16px 0;
+	}
+	
+	.menubtn{
+		overflow: hidden;
+	}
+
+	
+	.menulist li{
+		margin-right: 12px;
+		transition:all .5s;
+		padding: 6px 10px;
+		border-radius: 2px;
+		font-size: 16px;
+		float: left;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.register{
+		padding-bottom: 48px;
+	}
+
+	.register h3{
+		padding-top: 48px;
+		margin-bottom: 48px;
+		font-size: 20px;
+	}
+
+	.register input{
+		margin-bottom: 48px;
+		font-size: 18px;
+		padding: 12px 0;
+	}
+	.register button{
+		font-size: 18px;
+	}
+	
+	#register{
+		padding: 16px 32px;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+
+}
+
+/*768px-*/
+@media screen and (min-width: 768px){
+	header{
+		padding: 16px 0;
+	}
+	
+	.menubtn{
+		overflow: hidden;
+	}
+	
+	.menulist li{
+		margin-right: 24px;
+		transition:all .5s;
+		padding: 8px 12px;
+		border-radius: 2px;
+		font-size: 18px;
+		float: left;
+	}
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.register{
+		padding-bottom: 48px;
+	}
+
+	.register h3{
+		padding-top: 48px;
+		margin-bottom: 48px;
+		font-size: 20px;
+	}
+
+	.register input{
+		margin-bottom: 48px;
+		font-size: 18px;
+		padding: 12px 0;
+	}
+	.register button{
+		font-size: 18px;
+	}
+	
+	#register{
+		padding: 16px 32px;
+	}
+
+
+	footer{
+		padding: 32px 0;
+	}
+
+	
+}

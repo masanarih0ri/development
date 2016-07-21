@@ -1,0 +1,425 @@
+@charset "utf-8";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans Japanese', serif;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+
+}
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+      
+#target {
+  width: 345px;
+}
+
+#latdata,#lngdata{
+  display: none;
+}
+
+/*#google-maps{
+  position: relative;
+  padding-top: 50%;
+}
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}*/
+
+/*mapの基本配置とAPI用CSS終わり*/
+
+/*全体のCSS*/
+
+header{
+  text-align: center;
+  background-color: #54b4dc;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.logo{
+  background-color: #54b4dc;
+  height: 40px;
+  float: left;
+  display:table;
+  text-align: center;
+  color: #fff;
+}
+.logo > *{
+  display:table-cell;
+    vertical-align: middle;
+}
+
+#menubtn{
+    display: none;
+}
+.menubtn{
+    background-color: #54b4dc;
+    height: 40px;
+    float: right;
+    display:table;
+    text-align: center;
+    color: #fff;
+}
+.menubtn > *{
+    display:table-cell;
+    vertical-align: middle;
+}
+
+
+.menubtn li a{
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+
+#mapregister{
+  background-color: #0068a7;
+}
+
+#serchkeyworddata{
+  color: #fff !important;
+  background-color: #0068a7;
+  border-bottom: 1px solid #fff !important;
+}
+
+#register{
+  border: none;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  background-color: #0494cc;
+  cursor: pointer;
+}
+
+
+footer{
+  text-align: center;
+  background-color: #54b4dc;
+  color: #fff;
+}
+
+/*-320*/
+@media screen and (max-width: 320px){
+  header{
+    padding: 16px 0;
+  }
+  #pac-input {
+    width: 150px;
+  }
+  #map{
+    width: 100%;
+    height: 400px;
+  }
+  .menubtn{
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  #menubtn{
+    display: block;
+    border-radius: 2px;
+    padding: 4px 12px;
+    text-align: center;
+    border: 1px solid #fff;
+    margin-right: 4px;
+    letter-spacing: 2px;
+  }
+  .menulist{
+    display: none;
+  }
+
+  .menulist li{
+    transition:all .5s;
+    padding: 6px 8px;
+    border-radius: 2px;
+    font-size: 16px;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+  }
+
+  .menulist li:hover{
+    background-color: #0068a7;
+    color: #fbcc36;
+  }
+ 
+  #register{
+    padding: 16px 32px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+  
+  #mapregister{
+    text-align: center;
+    padding-top: 48px;
+  }
+ 
+  #mapregister input{
+    border-bottom: 1px solid #fff;
+    border: none;
+    /*margin-bottom: 24px;*/
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  #latdata,#lngdata{
+    display: none;
+  }
+
+  footer{
+    padding: 32px 0;
+  }
+
+}
+
+
+/*320-640*/
+@media screen and (min-width: 320px) and (max-width: 640px){
+  header{
+    padding: 16px 0;
+  }
+  #pac-input {
+    width: 200px;
+  }
+  #map{
+    width: 100%;
+    height: 400px;
+  }
+  .menubtn{
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  #menubtn{
+    display: block;
+    border-radius: 2px;
+    padding: 8px 24px;
+    text-align: center;
+    border: 1px solid #fff;
+    /*margin-right: 4px;*/
+    letter-spacing: 2px;
+  }
+  .menulist{
+    display: none;
+  }
+
+  .menulist li{
+    transition:all .5s;
+    padding: 6px 8px;
+    border-radius: 2px;
+    font-size: 16px;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+  }
+
+  .menulist li:hover{
+    background-color: #0068a7;
+    color: #fbcc36;
+  }
+ 
+  #register{
+    padding: 16px 32px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+  
+  #mapregister{
+    text-align: center;
+    padding-top: 48px;
+  }
+ 
+  #mapregister input{
+    border-bottom: 1px solid #fff;
+    border: none;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  #latdata,#lngdata{
+    display: none;
+  }
+
+  footer{
+    padding: 32px 0;
+  }
+
+}
+
+/*640-768*/
+@media screen and (min-width: 640px) and (max-width: 768px){
+  header{
+    padding: 16px 0;
+  }
+  #pac-input {
+    width: 200px;
+  }
+  #map{
+    width: 100%;
+    height: 400px;
+  }
+  .menubtn{
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  .menulist li{
+    float: left;
+    margin-right: 12px;
+    transition:all .5s;
+    padding: 6px 8px;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+
+  .menulist li:hover{
+    background-color: #0068a7;
+    color: #fbcc36;
+  }
+ 
+  #register{
+    padding: 16px 32px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+  
+  #mapregister{
+    text-align: center;
+    padding-top: 48px;
+  }
+ 
+  #mapregister input{
+    border-bottom: 1px solid #fff;
+    border: none;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  #latdata,#lngdata{
+    display: none;
+  }
+
+  footer{
+    padding: 32px 0;
+  }
+
+}
+
+/*768-*/
+@media screen and (min-width: 768px){
+  header{
+    padding: 16px 0;
+  }
+
+  #pac-input {
+    width: 300px;
+  }
+  .menubtn{
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  .menulist li{
+    float: left;
+    margin-right: 24px;
+    transition:all .5s;
+    padding: 8px 12px;
+    border-radius: 2px;
+    font-size: 18px;
+  }
+
+  .menulist li:hover{
+    background-color: #0068a7;
+    color: #fbcc36;
+  }
+
+  #register{
+    padding: 16px 32px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+  
+  #mapregister{
+    text-align: center;
+    padding-top: 48px;
+  }
+ 
+  #mapregister input{
+    border-bottom: 1px solid #fff;
+    border: none;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+
+
+  footer{
+    padding: 32px 0;
+  }
+
+}
+

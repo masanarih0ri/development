@@ -1,0 +1,486 @@
+@charset "utf-8";
+
+body{
+	font-family: 'Noto Sans Japanese', serif;
+	line-height: 1.5;
+}
+
+header{
+	background-color: #54b4dc;
+	overflow: hidden;
+}
+
+.logo{
+	background-color: #54b4dc;
+	height: 40px;
+	float: left;
+	display:table;
+	text-align: center;
+	color: #fff;
+}
+.logo > *{
+	display:table-cell;
+    vertical-align: middle;
+}
+
+#menubtn{
+    display: none;
+}
+.menubtn{
+    background-color: #54b4dc;
+    height: 40px;
+    float: right;
+    display:table;
+    text-align: center;
+    color: #fff;
+}
+.menubtn > *{
+    display:table-cell;
+    vertical-align: middle;
+}
+
+
+.menubtn li a{
+	text-decoration: none;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+.list{
+	background-color: #0068a7;
+	overflow: scroll;
+}
+.list li{
+	border-bottom: 1px solid #fff;
+	padding: 12px 0;
+	text-align: center;
+	cursor: pointer;
+}
+.list li a{
+	text-decoration: none;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 16px;
+}
+
+.registerbtn{
+	clear: both;
+	background-color: rgba(84,180,220,0.7);
+}
+
+.registerlist{
+	clear: both;
+	width: 75%;
+	height: 252px;
+	/*background-color: black;*/
+	float: left;
+	padding: 24px 12.5%; 
+	/*overflow: hidden;*/
+	/*background-color: rgba(84,180,220,0.7);*/
+	
+}
+
+.registerlist ul li{
+	padding: 30px 0;
+	border-bottom: 1px solid #fff;
+	text-align: center;
+	width: 33.3333%;
+	border-radius: 2px;
+	float: left;
+	margin-top: 87.5px;
+}
+.registerlist ul{
+	overflow: hidden;
+}
+
+.registerlist li a{
+	text-decoration: none;
+}
+
+
+.editbtn{
+	background-color: #0198c7;
+}
+.editbtn a{
+	color: #f5f5f5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #333;
+}
+.moneybtn{
+	background-color: #709e1b;
+}
+.moneybtn a{
+	color: #f5f5f5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #333;
+}
+.mapbtn{
+	background-color: #f0b01d;
+}
+
+.mapbtn a{
+	color: #f5f5f5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #f5f5f5;
+}
+
+.logoutbtnarea{
+	background-color: rgba(84,180,220,0.7);
+	text-align: center;
+}
+
+.logoutbtn{
+	width: 100px;
+	text-align: center;
+	margin-top: 48px;
+	border: none;
+	background-color: #0068a7;
+	color: #fff;
+	cursor: pointer;
+	margin: 0 auto;
+	border-radius: 2px;
+	padding: 8px 16px;
+}
+
+
+footer{
+	clear: both;
+	background-color: #54b4dc;
+	text-align: center;
+	color: #fff;
+	padding: 32px 0;
+}
+
+/*-320*/
+
+@media screen and (max-width: 320px) {
+	header{
+		padding: 16px 0;
+	}
+	.menubtn{
+		overflow: hidden;
+		margin-right: 16px;
+	}
+	#menubtn{
+		display: block;
+		border-radius: 2px;
+		padding: 4px 12px;
+		text-align: center;
+		border: 1px solid #fff;
+
+	}
+	.menulist{
+		display: none;
+	}
+
+	.menulist li{
+		transition:all .5s;
+		padding: 6px 8px;
+		border-radius: 2px;
+		font-size: 16px;
+		border-bottom: 1px solid #fff;
+		border-right: 1px solid #fff;
+		border-left: 1px solid #fff;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+	.contents{
+		background-color: #0068a7;
+	}
+
+	.list{
+		width: 90%;
+		margin: 0 auto;
+		height: 300px;
+		padding: 24px 0;
+	}
+
+	#map{
+		width: 90%;
+		height: 300px;
+		margin: 0 auto;
+		
+	}
+	.registerbtn{
+		display: block;
+		background-color: rgba(84,180,220,0.7);
+		padding: 24px 0;
+	}
+	
+	.registerlist{
+		display: none;
+		clear: both;
+		background-color: rgba(84,180,220,0.7);
+		width: 90%;
+		margin: 0 auto;
+	}
+	.registerbtn ul li{
+		float: left;
+		margin-right: 30px;
+	}
+	.registerbtn ul li:last-child{
+		margin-right: 0;
+	}
+	.registerbtn ul{
+		width: 240px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+
+}
+
+/*320-480*/
+@media screen and (min-width: 320px) and (max-width: 480px){
+	header{
+		padding: 16px 0;
+	}
+	.menubtn{
+		overflow: hidden;
+		margin-right: 8px;
+	}
+	#menubtn{
+		display: block;
+		border-radius: 2px;
+		padding: 8px 24px;
+		text-align: center;
+		border: 1px solid #fff;
+
+	}
+	.menulist{
+		display: none;
+	}
+
+	.menulist li{
+		transition:all .5s;
+		padding: 6px 8px;
+		border-radius: 2px;
+		font-size: 16px;
+		border-bottom: 1px solid #fff;
+		border-right: 1px solid #fff;
+		border-left: 1px solid #fff;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+	.contents{
+		background-color: #0068a7;
+	}
+
+	.list{
+		width: 80%;
+		margin: 0 auto;
+		height: 400px;
+		padding: 24px 0;
+	}
+
+	#map{
+		width: 80%;
+		height: 400px;
+		margin: 0 auto;
+	}
+	.registerbtn{
+		display: block;
+		background-color: rgba(84,180,220,0.7);
+		padding: 24px 0;
+	}
+	.reginterbtn img{
+		cursor: pointer;
+	}
+
+	.registerlist{
+		clear: both;
+		display: none;
+	}
+	.registerbtn ul li{
+		float: left;
+		margin-right: 50px;
+	}
+	.registerbtn ul li:last-child{
+		margin-right: 0;
+	}
+	.registerbtn ul{
+		width: 280px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+
+}
+
+/*480-640*/
+@media screen and (min-width: 480px) and (max-width: 640px){
+	header{
+		padding: 16px 0;
+	}
+
+	.wrapper{
+		clear: both;
+	}
+	.contents{
+		overflow: hidden;
+	}
+	.list{
+		width: 30%;
+		height: 500px;
+		float: left;
+	}
+
+	#map{
+		float: left;
+		width: 70%;
+		height: 500px;
+	}
+
+	.menubtn{
+		overflow: hidden;
+		margin-right: 16px;
+	}
+	#menubtn{
+		display: block;
+		border-radius: 2px;
+		padding: 8px 24px;
+		text-align: center;
+		border: 1px solid #fff;
+
+	}
+	.menulist{
+		display: none;
+	}
+
+	.menulist li{
+		transition:all .5s;
+		padding: 6px 8px;
+		border-radius: 2px;
+		font-size: 16px;
+		border-bottom: 1px solid #fff;
+		border-right: 1px solid #fff;
+		border-left: 1px solid #fff;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.registerbtn{
+		display: none;
+	}
+	
+
+	footer{
+		padding: 32px 0;
+	}
+
+}
+/*640-768*/
+@media screen and (min-width: 640px) and (max-width: 768px){
+	header{
+		padding: 16px 0;
+	}
+	.wrapper{
+		clear: both;
+	}
+	.contents{
+		overflow: hidden;
+	}
+	.list{
+		width: 25%;
+		height: 500px;
+		float: left;
+	}
+
+	#map{
+		float: left;
+		width: 75%;
+		height: 500px;
+		background-color: red;
+	}
+
+	.menulist li{
+		float: left;
+		margin-right: 12px;
+		transition:all .5s;
+		padding: 6px 8px;
+		border-radius: 2px;
+		font-size: 16px;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.registerbtn{
+		display: none;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+	
+}
+
+
+/*768-*/
+@media screen and (min-width: 768px){
+	header{
+		padding: 16px 0;
+	}
+	.menubtn{
+		overflow: hidden;
+	}
+	.wrapper{
+		clear: both;
+	}
+	.contents{
+		overflow: hidden;
+	}
+	.list{
+		width: 25%;
+		height: 500px;
+		float: left;
+	}
+
+	#map{
+		float: left;
+		width: 75%;
+		height: 500px;
+	}
+
+	.menulist li{
+		float: left;
+		margin-right: 24px;
+		transition:all .5s;
+		padding: 8px 12px;
+		border-radius: 2px;
+		font-size: 18px;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.registerbtn{
+		display: none;
+	}
+
+	footer{
+		padding: 32px 0;
+	}
+	
+}
+
+

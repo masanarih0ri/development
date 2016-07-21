@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+body{
+	font-family: 'Noto Sans Japanese', serif;
+}
+
+header{
+	background-color: #54b4dc;
+	overflow: hidden;
+}
+
+#menubtn{
+	display: none;
+}
+.menubtn{
+	float: right;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+.menubtn li a{
+	text-decoration: none;
+	color: #fff;
+}
+.wrapper{
+	clear: both;
+	/*max-width: 100%;*/
+}
+.contents{
+	overflow: hidden;
+	max-width: 100%;
+}
+
+.list{
+	width: 20%;
+	height: 300px;
+	float: left;
+	background-color: #0068a7;
+	overflow: scroll;
+}
+.list li{
+	border-bottom: 1px solid #fff;
+	padding: 12px 0;
+	text-align: center;
+	cursor: pointer;
+}
+.list li a{
+	text-decoration: none;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 16px;
+}
+
+#map{
+	width: 80%;
+	height: 300px;
+	float: left;
+
+}
+
+.registerbtn{
+	clear: both;
+	width: 20%;
+	height: 300px;
+	background-color: rgba(84,180,220,0.7);
+	float: left;
+}
+
+.regisertlist{
+	clear: both;
+	width: 75%;
+	height: 252px;
+	background-color: rgba(84,180,220,0.7);
+	float: left;
+	padding: 24px 12.5%; 
+	overflow: hidden;
+}
+
+.regisertlist li{
+	padding: 30px 0;
+	border-bottom: 1px solid #fff;
+	text-align: center;
+	width: 33.3333%;
+	border-radius: 2px;
+	float: left;
+	margin-top: 87.5px;
+}
+
+.regisertlist li a{
+	text-decoration: none;
+}
+
+
+.plusbtn{
+	background-color: #0198c7;
+}
+.plusbtn a{
+	color: #cae5f6;
+}
+.moneybtn{
+	background-color: #709e1b;
+}
+.moneybtn a{
+	color: #fff;
+}
+.mapbtn{
+	background-color: #fad515;
+}
+
+.mapbtn a{
+	color: #0068a7;
+}
+
+.regisertlist button{
+	width: 100px;
+	text-align: center;
+	float: right;
+	margin-top: 48px;
+	border: none;
+	background-color: #0068a7;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+footer{
+	clear: both;
+	background-color: #54b4dc;
+	text-align: center;
+	color: #fff;
+	padding: 32px 0;
+}
+
+/*992-*/
+
+@media screen and (min-width: 992px){
+	header{
+		padding: 24px 0;
+	}
+
+	.menulist li{
+		float: left;
+		margin-right: 24px;
+		transition:all .5s;
+		padding: 8px 12px;
+		border-radius: 2px;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.registerbtn{
+		display: none;
+	}
+	
+}
+
+@media screen and (min-width: 682px){
+	header{
+		padding: 24px 0;
+	}
+
+	.menulist li{
+		float: left;
+		margin-right: 24px;
+		transition:all .5s;
+		padding: 8px 12px;
+		border-radius: 2px;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.registerbtn{
+		display: none;
+	}
+	#map{
+		width: 80%;
+	}
+	
+}
+
+@media screen and (min-width: 482px){
+	header{
+		padding: 24px 0;
+	}
+
+	.menulist li{
+		float: left;
+		margin-right: 24px;
+		transition:all .5s;
+		padding: 8px 12px;
+		border-radius: 2px;
+	}
+
+	.menulist li:hover{
+		background-color: #0068a7;
+		color: #fbcc36;
+	}
+
+	.registerbtn{
+		display: none;
+	}
+	#map{
+		width: 80%;
+	}
+	
+}
+
+
