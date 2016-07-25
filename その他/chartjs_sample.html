@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Chart.jsのサンプル</title>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+</head>
+<style>
+/*見やすさのため、大きさをちょっと拡大*/
+	canvas {
+		width: 580px !important;
+		height: 580px !important;
+	}
+</style>
+<body>
+	<canvas id="myChart" width="400" height="400"></canvas>
+
+	<script>
+
+	window.onload = function(){
+		//棒グラフを作るために、色々とねじ込む。
+		var barChartData = {
+				//まずはX軸にあるラベルを設定。
+		     	labels : ["データ1","データ2","データ3","データ4","データ5","データ6","データ7","データ8"],
+		     	//ここで塗りつぶす色とか、データの数値を入力
+		    	datasets : [
+		    		{
+			            fillColor : "rgba(240,128,128,0.6)",    // 塗りつぶし色
+			            strokeColor : "rgba(240,128,128,0.9)",  // 枠線の色
+			            highlightFill: "rgba(255,64,64,0.75)",  // マウスが載った際の塗りつぶし色
+			            highlightStroke: "rgba(255,64,64,1)",   // マウスが載った際の枠線の色
+			            data : [ 1200, 2400, 4830, 8393, 472, 2092 , 9002, 2904]     // 各棒の値(カンマ区切りで指定)
+		        	}
+		        ]
+
+		   }
+		//棒グラフの描画
+		var ctx = document.getElementById("myChart").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData);
+	};
+
+	</script>
+</body>
+</html>
